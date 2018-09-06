@@ -1,15 +1,24 @@
 import math
-print ("Welcome to Minesweeper!")
-print ("Please, chose from the menu:")
-while True:
-    print("""1. Play the Game
-             2. Quit""")
-    choice = input(": ")
-    if choice == 1 :
-        print ("Please Enter the board size, it should be at least 2")
-        boardSize = input(": ")
-        print("Awsome!")
-        minMines = 1
-        minesMax = sqrt (boardSize) - 1
-    else:
-        break
+from Tkinter import *
+from boardFunctions import BoardFunctions
+
+window=Tk()
+
+class MainWindow():
+
+    theBoard = BoardFunctions()
+
+    rows = raw_input("How many rows?")
+    cols = raw_input("How many cols?")
+
+    theBoard.makeGrid(rows, cols)
+
+    window.title("Welcome to Mine Sweeper")
+
+    window.geometry('1000x2000')
+
+    lbl = Label(window, text="Hello")
+
+    lbl.grid(row=0, column=0)
+
+    window.mainloop()
