@@ -1,5 +1,25 @@
+from square import Square
+import square
+
 class BoardFunctions():
     def makeGrid(self,rows,cols):
+            rows=int(rows)
+            cols=int(cols)
+            grid = [[0 for x in range(cols)] for y in range(rows)]
+            for i in range(0,rows):
+                for j in range(0,cols):
+                        grid[i][j] = Square()
+
+            for i in range(0, rows):
+                for j in range(0, cols):
+                    #print grid[i][j].maybe,
+                    grid[i][j].print_square()
+                    print grid[i][j].is_mine
+                print
+
+            print grid[0][0].is_mine
+
+    def printBoard(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols+2)] for y in range(rows+2)]
@@ -17,11 +37,11 @@ class BoardFunctions():
                     elif(i==1):
                         grid[i][j]="~"
                     else:
-                        grid [i][j] = 0
+                        grid[i][j] = 0
+
 
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
-                    print grid[i][j],
+                    a = grid[i][j]
+                    print a.maybe
                 print
-
-    
