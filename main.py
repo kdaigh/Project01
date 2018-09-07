@@ -1,28 +1,38 @@
 import math
-from Tkinter import *
-window=Tk()
+import random
+def generateBoard (size, mines):
+    board = []
+    for i in range (size):
+        for j in range (size):
+            board = random.randint (0,2)
+        board = random.randint (0,2)
+    print ("board has been generated")
+    return board
+		    
+def printBoard(board):
+    print (board)
+    print ("printed")
+	
 
-class MainWindow():
-
-    rows = raw_input("How many rows?")
-    cols = raw_input("How many cols?")
-
-    def makeGrid(rows, cols):
-        rows=int(rows)
-        cols=int(cols)
-        for i in range(0,rows):
-            for j in range(0,cols):
-                btn1 = Button(window, text=i)
-                btn1.grid(column = i, row = j, sticky=NSEW)
-
-    window.title("Welcome to Mine Sweeper")
-
-    window.geometry('1000x2000')
-
-    lbl = Label(window, text="Hello")
-
-    lbl.grid(row=0, column=0)
-
-    makeGrid(rows,cols)
-
-    window.mainloop()
+print ("Welcome to Minesweeper!")
+print ("Please, chose from the menu:")
+while True:    
+    print("""1. Play the Game
+2. Quit""")
+    choice = int (input(": "))    
+    if choice == 1 :
+        print ("Please Enter the board size, it should be at least 2, and maximum 15")
+        boardSize = int (input(": "))
+        print ("Awsome! Let the fun begin!")
+        minMines = 1
+        maxMines = (boardSize)**2 - 1
+        print ("Enter the number of mines, it should be between 1 and " + str (maxMines))
+        minesNum = int (input ())
+        
+        gameBoard = []
+        gameBoard = generateBoard (boardSize, minesNum)		
+        printBoard (gameBoard)
+        print ("I am here")
+    
+    else:
+	    break
