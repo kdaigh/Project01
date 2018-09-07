@@ -23,3 +23,5 @@ class BoardFunctions():
                 for j in range(0, cols+2):
                     print grid[i][j],
                 print
+
+    

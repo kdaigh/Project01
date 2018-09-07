@@ -1,28 +1,13 @@
 import math
-from Tkinter import *
-window=Tk()
+import random
+from boardFunctions import BoardFunctions
 
-class MainWindow():
+print ("Welcome to Minesweeper!")
+print ("Please, chose from the menu:")
 
-    rows = raw_input("How many rows?")
-    cols = raw_input("How many cols?")
+theBoard=BoardFunctions()
 
-    def makeGrid(rows, cols):
-        rows=int(rows)
-        cols=int(cols)
-        for i in range(0,rows):
-            for j in range(0,cols):
-                btn1 = Button(window, text=i)
-                btn1.grid(column = i, row = j, sticky=NSEW)
+rows = input("How many rows?")
+cols = input("How many cols?")
 
-    window.title("Welcome to Mine Sweeper")
-
-    window.geometry('1000x2000')
-
-    lbl = Label(window, text="Hello")
-
-    lbl.grid(row=0, column=0)
-
-    makeGrid(rows,cols)
-
-    window.mainloop()
+theBoard.makeGrid(rows, cols)
