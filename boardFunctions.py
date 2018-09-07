@@ -25,6 +25,28 @@ class BoardFunctions():
                     print grid[i][j],
                 print
 
+
+    def generateMines(size, mines):
+    #, and maybe board para. depnds on how we want to access square 
+        while minesNum != mines:
+            for i in range (size):
+                for j in range (size):
+                    isMine = random.randint (0,1)
+                    if isMine == 1:
+                        #update square flags
+                        minesNum + = 1
+                    else:
+                        break
+                isMine = random.randint (0,1)
+                if isMine == 1:
+                    #udate square flags
+                    minsNum + = 1
+                else:
+                    break
+
+
+
+
     def gameMenu ():
         print ("Welcome to Minesweeper!")
         print ("Please, chose from the menu:")
