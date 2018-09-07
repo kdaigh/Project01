@@ -6,6 +6,8 @@
 
 class Square:
     def __init__(self):
+        self.x = 0
+        self.y = 0
         self.is_mine = False
         self.is_flagged = False
         self.is_revealed = False
