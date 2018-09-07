@@ -12,3 +12,17 @@ class Square:
         self.is_flagged = False
         self.is_revealed = False
         self.num_adj_mines = 0
+
+    def print_square(self):
+        if not self.is_revealed:
+            if self.is_flagged:
+                print("F")
+            else:
+                print("O")
+        else:
+            if self.is_mine:
+                print("*")
+            elif self.num_adj_mines:
+                print(" ")
+            else:
+                print("%d" % self.num_adj_mines)
