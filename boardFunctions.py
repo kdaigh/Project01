@@ -10,11 +10,18 @@ class BoardFunctions():
                 for j in range(0,cols):
                         grid[i][j] = Square()
 
-            for i in range(0, rows):
-                for j in range(0, cols):
-                    #print grid[i][j].maybe,
-                    grid[i][j].print_square()
-                print('\n')
+            self.justPrint(rows, cols, grid)
+
+            grid[0][0].is_flagged = True;
+
+            self.justPrint(rows,cols,grid)
+
+    def justPrint(self, rows, cols,grid):
+        for i in range(0, rows):
+            for j in range(0, cols):
+                #print grid[i][j].maybe,
+                grid[i][j].print_square()
+            print('\n')
 
 
     def printBoard(self,rows,cols):
