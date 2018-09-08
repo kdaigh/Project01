@@ -3,7 +3,6 @@
 # Author: Kristi Daigh
 # Created: 09/07/18 09:00AM
 
-
 class Square:
     def __init__(self):
         self.x = 0
