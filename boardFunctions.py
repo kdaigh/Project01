@@ -14,10 +14,8 @@ class BoardFunctions():
                 for j in range(0, cols):
                     #print grid[i][j].maybe,
                     grid[i][j].print_square()
-                    print grid[i][j].is_mine
-                print
+                print('\n')
 
-            print grid[0][0].is_mine
 
     def printBoard(self,rows,cols):
             rows=int(rows)
@@ -43,5 +41,5 @@ class BoardFunctions():
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
                     a = grid[i][j]
-                    print a.maybe
+                    print(a.maybe0)
                 print

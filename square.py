@@ -18,13 +18,13 @@ class Square:
     def print_square(self):
         if not self.is_revealed:
             if self.is_flagged:
-                print("F")
+                print("F", end=' ')
             else:
-                print("O")
+                print("O", end=' ')
         else:
             if self.is_mine:
-                print("*")
+                print("*", end=' ')
             elif self.num_adj_mines:
-                print(" ")
+                print(" ", end=' ')
             else:
                 print("%d" % self.num_adj_mines)
