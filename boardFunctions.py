@@ -4,8 +4,13 @@
 
 from square import Square
 import square
+import random
 
 class BoardFunctions():
+    
+    def __init__(self):
+        self.boardSize = 0
+        self.mines_num = 0
 
     #precondition: no grid has been generated
     #postcondition: grid generated
@@ -63,3 +68,41 @@ class BoardFunctions():
                     a = grid[i][j]
                     print(a.maybe0)
                 print
+
+    def generate_mines(self, size, mines):
+        # , and maybe board para. depnds on how we want to access square
+        minesNum = 0
+        while minesNum != mines:
+            for i in range(size):
+                for j in range(size):
+                    isMine = random.randint(0, 1)
+                    if isMine == 1:
+                        # update square flags
+                        minesNum += 1
+                    else:
+                        break
+                isMine = random.randint(0, 1)
+                if isMine == 1:
+                    # udate square flags
+                    minesNum += 1
+                else:
+                    break
+
+    def game_menu(self):
+        print("Welcome to Minesweeper!")
+        print("Please, chose from the menu:")
+        print("""1. Play the Game
+2. Quit""")
+        choice = int(input())
+        if choice == 1:
+            print("Please Enter the board size, it should be at least 2, and maximum 15")
+            self.boardSize = int(input())
+            print("Awsome! Let the fun begin!")
+            min_mines = 1
+            max_mines = self.boardSize ** 2 - 1
+            print("Enter the number of mines, it should be between 1 and " + str(max_mines))
+            self.mines_num = int(input())
+            return self.boardSize, self.mines_num
+        else:
+            return
+
