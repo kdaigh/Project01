@@ -2,20 +2,20 @@
 #project: mineSweeper
 #author: Clare Meyer
 
-from square import Square
-import square
 import random
+from square import Square
+
 
 class BoardFunctions():
     
     def __init__(self):
         self.boardSize = 0
-        self.mines_num = 0
+        self.mines = 0
 
-    #precondition: no grid has been generated
-    #postcondition: grid generated
-    #returns: none
-    def makeGrid(self,rows,cols):
+    # precondition: no grid has been generated
+    # postcondition: grid generated
+    # returns: none
+    def makeGrid(self, rows, cols):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols)] for y in range(rows)]
@@ -29,19 +29,37 @@ class BoardFunctions():
 
             self.justPrint(rows,cols,grid)
 
-    #precondition: the grid has been generated but not printed
-    #postcondition: grid printed ina grid-like manner
-    #returns: none
+            # self.generate_mines(rows, cols, grid)
+
+            # self.justPrint(rows, cols, grid)
+
+    # precondition: the grid has been generated but not printed
+    # postcondition: grid printed ina grid-like manner
+    # returns: none
     def justPrint(self, rows, cols,grid):
         for i in range(0, rows):
             for j in range(0, cols):
-                #print grid[i][j].maybe,
+                # print grid[i][j].maybe,
                 grid[i][j].print_square()
             print('\n')
 
-    #precondition:grid does not have formatting
-    #postcondition: grid is printed to look nice for the user
-    #returns: none
+    def generate_mines(self, rows, cols, grid):
+        in_mines = 0
+        for i in range(0, rows):
+            for j in range(0, cols):
+                if in_mines == self.mines:
+                    break
+                else:
+                    grid[i][j] = random.randint(0, 1)
+                    if grid[i][j] == 1:
+                        #grid[i][j].is_mine = True
+                        in_mines += 1
+                    else:
+                        continue
+
+    # precondition:grid does not have formatting
+    # postcondition: grid is printed to look nice for the user
+    # returns: none
     def printBoard(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
@@ -66,43 +84,5 @@ class BoardFunctions():
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
                     a = grid[i][j]
-                    print(a.maybe0)
+                    # print(a.maybe0)
                 print
-
-    def generate_mines(self, size, mines):
-        # , and maybe board para. depnds on how we want to access square
-        minesNum = 0
-        while minesNum != mines:
-            for i in range(size):
-                for j in range(size):
-                    isMine = random.randint(0, 1)
-                    if isMine == 1:
-                        # update square flags
-                        minesNum += 1
-                    else:
-                        break
-                isMine = random.randint(0, 1)
-                if isMine == 1:
-                    # udate square flags
-                    minesNum += 1
-                else:
-                    break
-
-    def game_menu(self):
-        print("Welcome to Minesweeper!")
-        print("Please, chose from the menu:")
-        print("""1. Play the Game
-2. Quit""")
-        choice = int(input())
-        if choice == 1:
-            print("Please Enter the board size, it should be at least 2, and maximum 15")
-            self.boardSize = int(input())
-            print("Awsome! Let the fun begin!")
-            min_mines = 1
-            max_mines = self.boardSize ** 2 - 1
-            print("Enter the number of mines, it should be between 1 and " + str(max_mines))
-            self.mines_num = int(input())
-            return self.boardSize, self.mines_num
-        else:
-            return
-
