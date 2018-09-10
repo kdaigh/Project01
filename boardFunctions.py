@@ -129,8 +129,8 @@ def count_nearby_mines(self, x, y):
 
 
 def mine_check(self):
-    for w in range(0, boardSize):
-        for z in range(0, boardSize):
+    for w in range(0, BoardFunctions.boardSize):
+        for z in range(0, BoardFunctions.boardSize):
             count_nearby_mines(Square.x, Square.y)
 
 
