@@ -42,7 +42,7 @@ class BoardFunctions():
     #@author:Clare
     def just_print(self, size, grid):
         for i in range(0, size):
-            for j in range(0, cols):
+            for j in range(0, size):
                 # print(grid[i][j].maybe,)
                 grid[i][j].print_square()
             print('\n', end=' ')
