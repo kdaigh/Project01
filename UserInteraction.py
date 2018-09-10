@@ -11,8 +11,8 @@ class UserInteraction():
         self.game_over = False
         self.myBoard = BoardFunctions()
         self.myBoard.mines_num = mines
-        self.grid = myBoard.make_grid(size)
-        self.myBoard.generate_mines(size,grid)
+        self.grid = self.myBoard.make_grid(self.size)
+        self.myBoard.generate_mines(self.size,self.grid)
 
     def reveal(self, x, y):
         if self.grid[x][y].num_adj_mines != 0:
@@ -64,7 +64,6 @@ class UserInteraction():
             return 0
 
     def play(self):
-
         while(self.game_over != True):
             numFlags = self.mines
             self.myBoard.print_board(self.size, self.grid)

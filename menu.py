@@ -12,7 +12,7 @@ class Menu:
         self.board_size = 0
         self.is_winner = False
         self.is_loser = False
-        
+
     def game_menu(self):
         print("Welcome to Minesweeper!")
         print("Please, chose from the menu:")
@@ -22,13 +22,13 @@ class Menu:
         if choice == 1:
             print("Please Enter the board size, it should be at least 2, and maximum 15")
             self.board_size = int(input())
-            print("Awsome! Let the fun begin!")
+            print("Awesome! Let the fun begin!")
             max_mines = self.board_size ** 2 - 1
             print("Enter the number of mines, it should be between 1 and " + str(max_mines))
             self.mines_num = int(input())
 
             # return self.board_size, self.mines_num
-            
+
         else:
             return
 
