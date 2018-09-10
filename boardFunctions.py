@@ -64,13 +64,13 @@ class BoardFunctions():
                 for j in range(size):
                     isMine = random.randint(0, 1)
                     if isMine == 1:
-                        # update square flags
+                        self.is_mine = True
                         minesNum += 1
                     else:
                         break
                 isMine = random.randint(0, 1)
                 if isMine == 1:
-                    # udate square flags
+                    self.is_mine = True
                     minesNum += 1
                 else:
                     break
