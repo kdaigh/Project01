@@ -1,10 +1,9 @@
-import Square
-from Square import Square
+from square import Square
 
 import random
 
 
-class BoardFunctions():
+class BoardFunctions:
     def __init__(self):
         self.boardSize = 0
         self.mines_num = 0
@@ -92,3 +91,49 @@ class BoardFunctions():
             return self.boardSize, self.mines_num
         else:
             return
+
+    #def num_adj_mines(self, rows, cols):
+     #   adj_mines = 0
+        #for (adj_rows, adj_cols) in self.get_adj_squares(rows, cols):
+           # if self.adjacent(adj_rows, adj_cols) and self[adj_rows][adj_cols].is_mine:
+                #adj_mines += 1
+        #return adj_mines
+
+    #def get_adj_squares(self, rows, cols):
+        #near = [(0, -1), (0, 1), (-1, 1), (-1, -1), (0,1), (0, -1), (1, 1), (1, -1)]
+        #for (adj_rows, adj_cols) in near:
+            #return (rows + adj_rows, cols + adj_cols)
+
+    #def adjacent(self, rows, cols):
+        #return 0 <= rows < len(self) and 0 <= cols < len(self)
+
+def count_nearby_mines(self, x, y):
+    adj_mine_counter = 0
+    if Square(x + 1, y).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x + 1, y + 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x + 1, y - 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x, y + 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x, y - 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x - 1, y).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x - 1, y + 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x - 1, y - 1).is_mine == True:
+        adj_mine_counter += 1
+    Square(x, y).num_adj_mines = adj_mine_counter
+
+
+def mine_check(self):
+    for w in range(0, boardSize):
+        for z in range(0, boardSize):
+            count_nearby_mines(Square.x, Square.y)
+
+
+
+
+
