@@ -38,7 +38,7 @@ class BoardFunctions():
     def just_print(self, rows, cols, grid):
         for i in range(0, rows):
             for j in range(0, cols):
-                # print grid[i][j].maybe,
+                ## print grid[i][j].maybe,
                 grid[i][j].print_square()
             print('\n')
 
