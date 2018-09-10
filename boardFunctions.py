@@ -18,21 +18,20 @@ class BoardFunctions():
     #@postcondition: grid generated
     #@returns: grid
     #@author: Clare
-    def make_grid(self,rows,cols):
-            rows=int(rows)
-            cols=int(cols)
-            grid = [[0 for x in range(cols)] for y in range(rows)]
-            for i in range(0,rows):
-                for j in range(0,cols):
+    def make_grid(size):
+            size=int(size)
+            grid = [[0 for x in range(size)] for y in range(size)]
+            for i in range(0,size):
+                for j in range(0,size):
                     grid[i][j] = Square()
             return(grid)
 
-    def generate_mines(self,grid,rows,cols):
+    def generate_mines(self,size,grid):
         for i in range(0, self.mines_num):
             is_bomb = False
             while is_bomb==False:
-                a = randint(0, rows - 1)
-                b = randint(0, cols - 1)
+                a = randint(0, size - 1)
+                b = randint(0, size - 1)
                 if grid[a][b].is_mine == False:
                     grid[a][b].is_mine = True
                     is_bomb = True
@@ -41,8 +40,8 @@ class BoardFunctions():
     #@postcondition: grid printed ina grid-like manner
     #@returns: none
     #@author:Clare
-    def just_print(self, grid, rows, cols):
-        for i in range(0, rows):
+    def just_print(self, size, grid):
+        for i in range(0, size):
             for j in range(0, cols):
                 # print(grid[i][j].maybe,)
                 grid[i][j].print_square()
@@ -53,12 +52,11 @@ class BoardFunctions():
     #@postcondition: grid is printed to look nice for the user
     #@returns: none
     #@author: Clare
-    def print_board(self,rows,cols,main_grid):
-            rows=int(rows)
-            cols=int(cols)
-            grid = [[0 for x in range(cols+2)] for y in range(rows+2)]
-            for i in range(0,rows+2):
-                for j in range(0,cols+2):
+    def print_board(self,size,main_grid):
+            size=int(size)
+            grid = [[0 for x in range(size+2)] for y in range(size+2)]
+            for i in range(0,size+2):
+                for j in range(0,size+2):
                     if(i==0 and j==0 or i==0 and j==1 or i==1 and j==0
                     or i==1 and j==1):
                         grid[i][j]=" "
@@ -73,8 +71,8 @@ class BoardFunctions():
                     else:
                         grid[i][j] = main_grid[i-2][j-2]
 
-            for i in range(0, rows+2):
-                for j in range(0, cols+2):
+            for i in range(0, size+2):
+                for j in range(0, size+2):
                     if(i==0 or i==1 or j==0 or j==1):
                         print(grid[i][j], end=' ')
                     else:
