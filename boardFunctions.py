@@ -14,9 +14,10 @@ class BoardFunctions():
         self.mines_num = 0
 
 
-    #precondition: no grid has been generated
-    #postcondition: grid generated
-    #returns: none
+    #@precondition: no grid has been generated
+    #@postcondition: grid generated
+    #@returns: grid
+    #@author: Clare
     def make_grid(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
@@ -36,9 +37,10 @@ class BoardFunctions():
                     grid[a][b].is_mine = True
                     is_bomb = True
 
-    # precondition: the grid has been generated but not printed
-    # postcondition: grid printed ina grid-like manner
-    # returns: none
+    #@precondition: the grid has been generated but not printed
+    #@postcondition: grid printed ina grid-like manner
+    #@returns: none
+    #@author:Clare
     def just_print(self, grid, rows, cols):
         for i in range(0, rows):
             for j in range(0, cols):
@@ -47,9 +49,10 @@ class BoardFunctions():
             print('\n', end=' ')
 
 
-    # precondition:grid does not have formatting
-    # postcondition: grid is printed to look nice for the user
-    # returns: none
+    #@precondition:grid does not have formatting
+    #@postcondition: grid is printed to look nice for the user
+    #@returns: none
+    #@author: Clare
     def print_board(self,rows,cols,main_grid):
             rows=int(rows)
             cols=int(cols)
@@ -77,40 +80,6 @@ class BoardFunctions():
                     else:
                         grid[i][j].print_square()
                 print('\n', end=' ')
-
-    def game_menu(self):
-        print("Welcome to Minesweeper!")
-        print("Please, chose from the menu:")
-        print("""1. Play the Game
-    2. Quit""")
-        choice = int(input())
-        if choice == 1:
-            print("Please Enter the board size, it should be at least 2, and maximum 15")
-            self.boardSize = int(input())
-            print("Awsome! Let the fun begin!")
-            min_mines = 1
-            max_mines = self.boardSize ** 2 - 1
-            print("Enter the number of mines, it should be between 1 and " + str(max_mines))
-            self.mines_num = int(input())
-            return self.boardSize, self.mines_num
-        else:
-            return
-
-
-        #def num_adj_mines(self, rows, cols):
-         #   adj_mines = 0
-            #for (adj_rows, adj_cols) in self.get_adj_squares(rows, cols):
-               # if self.adjacent(adj_rows, adj_cols) and self[adj_rows][adj_cols].is_mine:
-                    #adj_mines += 1
-            #return adj_mines
-
-        #def get_adj_squares(self, rows, cols):
-            #near = [(0, -1), (0, 1), (-1, 1), (-1, -1), (0,1), (0, -1), (1, 1), (1, -1)]
-            #for (adj_rows, adj_cols) in near:
-                #return (rows + adj_rows, cols + adj_cols)
-
-        #def adjacent(self, rows, cols):
-            #return 0 <= rows < len(self) and 0 <= cols < len(self)
 
     def count_nearby_mines(self, x, y):
         adj_mine_counter = 0
