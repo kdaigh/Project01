@@ -18,7 +18,7 @@ class BoardFunctions():
     #@postcondition: grid generated
     #@returns: grid
     #@author: Clare
-    def make_grid(size):
+    def make_grid(self,size):
             size=int(size)
             grid = [[0 for x in range(size)] for y in range(size)]
             for i in range(0,size):
