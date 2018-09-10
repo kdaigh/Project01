@@ -10,7 +10,7 @@ class BoardFunctions():
     #precondition: no grid has been generated
     #postcondition: grid generated
     #returns: none
-    def makeGrid(self,rows,cols):
+    def make_grid(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols)] for y in range(rows)]
@@ -25,11 +25,11 @@ class BoardFunctions():
             ##self.justPrint(rows,cols,grid)
 
             return(grid)
-            
+
     #precondition: the grid has been generated but not printed
     #postcondition: grid printed ina grid-like manner
     #returns: none
-    def justPrint(self, rows, cols, grid):
+    def just_print(self, rows, cols, grid):
         for i in range(0, rows):
             for j in range(0, cols):
                 #print grid[i][j].maybe,
@@ -39,7 +39,7 @@ class BoardFunctions():
     #precondition:grid does not have formatting
     #postcondition: grid is printed to look nice for the user
     #returns: none
-    def printBoard(self,rows,cols):
+    def print_board(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols+2)] for y in range(rows+2)]

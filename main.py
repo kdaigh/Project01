@@ -17,7 +17,8 @@ from boardFunctions import BoardFunctions
 if __name__ == "__main__":
     myGame = BoardFunctions()
     myGame.game_menu()
-    size = myGame.boardSize
+    size = myGame.board_size
     mines = myGame.mines_num
-    grid = myGame.makeGrid(size, size)
-    myGame.justPrint(size, size, grid)
+    grid = myGame.make_grid(size, size)
+
+    myGame.just_print(size, size, grid)
