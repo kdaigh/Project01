@@ -8,7 +8,6 @@
 
 
 class Square:
-    maybe = 5
 
     ## Constructor
     def __init__(self):

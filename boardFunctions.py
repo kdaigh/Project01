@@ -1,67 +1,56 @@
+
+#boardFunctions class
+#project: mineSweeper
+#author: Clare Meyer
+
 from random import randint
 from square import Square
 
 
 class BoardFunctions():
-    
+
     def __init__(self):
-        self.mines = 0
+        self.boardSize = 0
+        self.mines_num = 0
 
-    # precondition: no grid has been generated
-    # postcondition: grid generated
-    # returns: none
-    def makeGrid(self, rows, cols):
-        rows=int(rows)
-        cols=int(cols)
-        grid = [[0 for x in range(rows)] for y in range(cols)]
 
-        self.generate_mines(grid, rows, cols)
-        self.grid_with_mines(grid, rows, cols)
-
-        self.justPrint(grid, rows, cols)
-
-    def generate_mines(self, grid, rows, cols):
-            # in_mines = self.mines
-            for i in range(self.mines):
-                is_bomb = False
-                while not is_bomb:
-                    a = randint(0, rows - 1)
-                    b = randint(0, cols - 1)
-                    if grid[a][b] != 1:
-                        grid[a][b] = 1
-                        is_bomb = True
-            return grid
-
-    def grid_with_mines(self, grid, rows, cols):
-        for i in range(0, rows):
-            for j in range(0, cols):
-                if grid[i][j] == 1:
+    #precondition: no grid has been generated
+    #postcondition: grid generated
+    #returns: none
+    def make_grid(self,rows,cols):
+            rows=int(rows)
+            cols=int(cols)
+            grid = [[0 for x in range(cols)] for y in range(rows)]
+            for i in range(0,rows):
+                for j in range(0,cols):
                     grid[i][j] = Square()
-                    grid[i][j].is_mine = True;
-                    # to test the change in the status
-                    # grid[0][1].is_flagged = True;
-                    # grid[0][0].is_revealed = True;
-                    # grid[0][0].is_mine = True;
-                else:
-                    grid[i][j] = Square()
+            return(grid)
 
-
+    def generate_mines(self,grid,rows,cols):
+        for i in range(0, self.mines_num):
+            is_bomb = False
+            while is_bomb==False:
+                a = randint(0, rows - 1)
+                b = randint(0, cols - 1)
+                if grid[a][b].is_mine == False:
+                    grid[a][b].is_mine = True
+                    is_bomb = True
 
     # precondition: the grid has been generated but not printed
     # postcondition: grid printed ina grid-like manner
     # returns: none
-    def justPrint(self, grid, rows, cols):
+    def just_print(self, grid, rows, cols):
         for i in range(0, rows):
             for j in range(0, cols):
                 # print(grid[i][j].maybe,)
                 grid[i][j].print_square()
-            print('\n')
+            print('\n', end=' ')
 
 
     # precondition:grid does not have formatting
     # postcondition: grid is printed to look nice for the user
     # returns: none
-    def printBoard(self,rows,cols):
+    def print_board(self,rows,cols,main_grid):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols+2)] for y in range(rows+2)]
@@ -79,11 +68,72 @@ class BoardFunctions():
                     elif(i==1):
                         grid[i][j]="~"
                     else:
-                        grid[i][j] = 0
-
+                        grid[i][j] = main_grid[i-2][j-2]
 
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
-                    a = grid[i][j]
-                    # print(a.maybe0)
-                print
+                    if(i==0 or i==1 or j==0 or j==1):
+                        print(grid[i][j], end=' ')
+                    else:
+                        grid[i][j].print_square()
+                print('\n', end=' ')
+
+    def game_menu(self):
+        print("Welcome to Minesweeper!")
+        print("Please, chose from the menu:")
+        print("""1. Play the Game
+    2. Quit""")
+        choice = int(input())
+        if choice == 1:
+            print("Please Enter the board size, it should be at least 2, and maximum 15")
+            self.boardSize = int(input())
+            print("Awsome! Let the fun begin!")
+            min_mines = 1
+            max_mines = self.boardSize ** 2 - 1
+            print("Enter the number of mines, it should be between 1 and " + str(max_mines))
+            self.mines_num = int(input())
+            return self.boardSize, self.mines_num
+        else:
+            return
+
+
+        #def num_adj_mines(self, rows, cols):
+         #   adj_mines = 0
+            #for (adj_rows, adj_cols) in self.get_adj_squares(rows, cols):
+               # if self.adjacent(adj_rows, adj_cols) and self[adj_rows][adj_cols].is_mine:
+                    #adj_mines += 1
+            #return adj_mines
+
+        #def get_adj_squares(self, rows, cols):
+            #near = [(0, -1), (0, 1), (-1, 1), (-1, -1), (0,1), (0, -1), (1, 1), (1, -1)]
+            #for (adj_rows, adj_cols) in near:
+                #return (rows + adj_rows, cols + adj_cols)
+
+        #def adjacent(self, rows, cols):
+            #return 0 <= rows < len(self) and 0 <= cols < len(self)
+
+    def count_nearby_mines(self, x, y):
+        adj_mine_counter = 0
+        if Square(x + 1, y).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x + 1, y + 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x + 1, y - 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x, y + 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x, y - 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x - 1, y).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x - 1, y + 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x - 1, y - 1).is_mine == True:
+            adj_mine_counter += 1
+        Square(x, y).num_adj_mines = adj_mine_counter
+
+
+    def mine_check(self):
+        for w in range(0, boardSize):
+            for z in range(0, boardSize):
+                count_nearby_mines(Square.x, Square.y)
