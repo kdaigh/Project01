@@ -2,10 +2,16 @@
 #project: mineSweeper
 #author: Clare Meyer
 
+import random
 from square import Square
-import square
+
+
 
 class BoardFunctions():
+    def __init__(self):
+        self.boardSize = 0
+        self.mines = 0
+
 
     #precondition: no grid has been generated
     #postcondition: grid generated
@@ -32,7 +38,7 @@ class BoardFunctions():
     def just_print(self, rows, cols, grid):
         for i in range(0, rows):
             for j in range(0, cols):
-                #print grid[i][j].maybe,
+                # print grid[i][j].maybe,
                 grid[i][j].print_square()
             print('\n')
 
@@ -58,7 +64,6 @@ class BoardFunctions():
                         grid[i][j]="~"
                     else:
                         grid[i][j] = 0
-
 
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
