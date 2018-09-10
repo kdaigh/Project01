@@ -82,7 +82,7 @@ class UserInteraction():
             elif grid[userX][userY].is_flagged == True and userChoice == "n":
                 grid[userX][userY].is_flagged = False
                 numFlags += 1
-            elif grid[userX][userY].is_mine == True and userChoice == r:
+            elif grid[userX][userY].is_mine == True and userChoice == "r":
                 print("Game Over")
                 self.game_over = True
             else:
