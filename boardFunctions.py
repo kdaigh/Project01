@@ -43,12 +43,12 @@ class BoardFunctions():
             for j in range(0, cols):
                 # print(grid[i][j].maybe,)
                 grid[i][j].print_square()
-            print('\n')
+            print('\n', end=' ')
 
     # precondition:grid does not have formatting
     # postcondition: grid is printed to look nice for the user
     # returns: none
-    def print_board(self,rows,cols):
+    def print_board(self,rows,cols,main_grid):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols+2)] for y in range(rows+2)]
@@ -66,13 +66,15 @@ class BoardFunctions():
                     elif(i==1):
                         grid[i][j]="~"
                     else:
-                        grid[i][j] = 0
-
+                        grid[i][j] = main_grid[i-2][j-2]
 
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
-                    grid[i][j].print_square()
-                print('\n')
+                    if(i==0 or i==1 or j==0 or j==1):
+                        print(grid[i][j], end=' ')
+                    else:
+                        grid[i][j].print_square()
+                print('\n', end=' ')
 
     def game_menu(self):
         print("Welcome to Minesweeper!")

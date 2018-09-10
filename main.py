@@ -18,6 +18,7 @@ grid = myBoard.make_grid(size, size)
 myBoard.generate_mines(grid, size, size)
 
 myBoard.just_print(grid,size, size)
+myBoard.print_board(size,size,grid)
 
 
 # myGame.play_game()
