@@ -1,26 +1,18 @@
-##import math
-##import random
-##from boardFunctions import BoardFunctions
-
-##print ("Welcome to Minesweeper!")
-##print ("Please, chose from the menu:")
-
-##theBoard=BoardFunctions()
-
-##rows = input("How many rows?")
-##cols = input("How many cols?")
-
-##theBoard.makeGrid(rows, cols)
-
+from menu import Menu
 from boardFunctions import BoardFunctions
 
-if __name__ == "__main__":
-    myGame = BoardFunctions()
-    myGame.game_menu()
 
-    size = myGame.boardSize
-    mines = myGame.mines_num
+myGame = Menu()
+myGame.game_menu()
 
-    grid = myGame.make_grid(size, size)
+myBoard = BoardFunctions()
 
-    myGame.just_print(size, size, grid)
+size = myGame.board_size
+mines = myGame.mines_num
+
+myBoard.mines = mines
+   
+myBoard.makeGrid(size, size)
+myBoard.printBoard(size, size)
+
+# myGame.play_game()
