@@ -5,7 +5,6 @@
 
 
 class Square:
-    maybe = 5
 
     def __init__(self):
         self.x = 0
@@ -27,4 +26,5 @@ class Square:
             elif self.num_adj_mines:
                 print(" ", end=' ')
             else:
-                print("%d" % self.num_adj_mines, end=' ')
+                ##print("%d" % self.num_adj_mines, end=' ')
+                print(0, end=' ')
