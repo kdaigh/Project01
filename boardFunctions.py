@@ -6,8 +6,8 @@ import random
 from square import Square
 
 
+
 class BoardFunctions():
-    
     def __init__(self):
         self.boardSize = 0
         self.mines = 0
@@ -80,9 +80,69 @@ class BoardFunctions():
                     else:
                         grid[i][j] = 0
 
-
             for i in range(0, rows+2):
                 for j in range(0, cols+2):
                     a = grid[i][j]
                     # print(a.maybe0)
                 print
+
+    def game_menu(self):
+        print("Welcome to Minesweeper!")
+        print("Please, chose from the menu:")
+        print("""1. Play the Game
+2. Quit""")
+        choice = int(input())
+        if choice == 1:
+            print("Please Enter the board size, it should be at least 2, and maximum 15")
+            self.boardSize = int(input())
+            print("Awsome! Let the fun begin!")
+            min_mines = 1
+            max_mines = self.boardSize ** 2 - 1
+            print("Enter the number of mines, it should be between 1 and " + str(max_mines))
+            self.mines_num = int(input())
+            return self.boardSize, self.mines_num
+        else:
+            return
+
+    #def num_adj_mines(self, rows, cols):
+     #   adj_mines = 0
+        #for (adj_rows, adj_cols) in self.get_adj_squares(rows, cols):
+           # if self.adjacent(adj_rows, adj_cols) and self[adj_rows][adj_cols].is_mine:
+                #adj_mines += 1
+        #return adj_mines
+
+    #def get_adj_squares(self, rows, cols):
+        #near = [(0, -1), (0, 1), (-1, 1), (-1, -1), (0,1), (0, -1), (1, 1), (1, -1)]
+        #for (adj_rows, adj_cols) in near:
+            #return (rows + adj_rows, cols + adj_cols)
+
+    #def adjacent(self, rows, cols):
+        #return 0 <= rows < len(self) and 0 <= cols < len(self)
+
+def count_nearby_mines(self, x, y):
+    adj_mine_counter = 0
+    if Square(x + 1, y).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x + 1, y + 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x + 1, y - 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x, y + 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x, y - 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x - 1, y).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x - 1, y + 1).is_mine == True:
+        adj_mine_counter += 1
+    if Square(x - 1, y - 1).is_mine == True:
+        adj_mine_counter += 1
+    Square(x, y).num_adj_mines = adj_mine_counter
+
+
+def mine_check(self):
+    for w in range(0, boardSize):
+        for z in range(0, boardSize):
+            count_nearby_mines(Square.x, Square.y)
+
+
