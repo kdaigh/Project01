@@ -22,5 +22,6 @@ if __name__ == "__main__":
     mines = myGame.mines_num
 
     grid = myGame.make_grid(size, size)
+    myGame.generate_mines(grid, size, size)
 
     myGame.just_print(size, size, grid)

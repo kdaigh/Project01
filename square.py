@@ -11,7 +11,7 @@ class Square:
         self.y = 0
         self.is_mine = False
         self.is_flagged = False
-        self.is_revealed = False
+        self.is_revealed = True
         self.num_adj_mines = 0
 
     def print_square(self):
@@ -26,4 +26,4 @@ class Square:
             elif self.num_adj_mines:
                 print(" ", end=' ')
             else:
-                print("%d" % self.num_adj_mines)
+                print("%d" % self.num_adj_mines, end=' ')

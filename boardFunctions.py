@@ -2,7 +2,7 @@
 #project: mineSweeper
 #author: Clare Meyer
 
-import random
+from random import randint
 from square import Square
 
 
@@ -10,7 +10,7 @@ from square import Square
 class BoardFunctions():
     def __init__(self):
         self.boardSize = 0
-        self.mines = 0
+        self.mines_num = 0
 
 
     #precondition: no grid has been generated
@@ -22,15 +22,18 @@ class BoardFunctions():
             grid = [[0 for x in range(cols)] for y in range(rows)]
             for i in range(0,rows):
                 for j in range(0,cols):
-                        grid[i][j] = Square()
-
-            ##self.justPrint(rows, cols, grid)
-
-            ##grid[0][0].is_flagged = True;
-
-            ##self.justPrint(rows,cols,grid)
-
+                    grid[i][j] = Square()
             return(grid)
+
+    def generate_mines(self,grid,rows,cols):
+        for i in range(0, self.mines_num):
+            is_bomb = False
+            while is_bomb==False:
+                a = randint(0, rows - 1)
+                b = randint(0, cols - 1)
+                if grid[a][b].is_mine == False:
+                    grid[a][b].is_mine = True
+                    is_bomb = True
 
     #precondition: the grid has been generated but not printed
     #postcondition: grid printed ina grid-like manner
@@ -69,26 +72,6 @@ class BoardFunctions():
                 for j in range(0, cols+2):
                     grid[i][j].print_square()
                 print('\n')
-
-
-    def generate_mines(self, size, mines):
-            # , and maybe board para. depnds on how we want to access square
-            minesNum = 0
-            while minesNum != mines:
-                for i in range(size):
-                    for j in range(size):
-                        isMine = random.randint(0, 1)
-                        if isMine == 1:
-                            # update square flags
-                            minesNum += 1
-                        else:
-                            break
-                    isMine = random.randint(0, 1)
-                    if isMine == 1:
-                        # udate square flags
-                        minesNum += 1
-                    else:
-                        break
 
     def game_menu(self):
         print("Welcome to Minesweeper!")
