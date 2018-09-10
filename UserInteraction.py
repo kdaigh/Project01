@@ -6,40 +6,40 @@ class UserInteraction():
     ##variable to check when the game ends
     game_over = False
 
-    def reveal(self, x, y):
-        if BoardFunctions.grid[x][y].num_adj_mines != 0:
-            BoardFunctions.grid[x][y].is_revealed = True
+    def reveal(self, x, y,grid):
+        if grid[x][y].num_adj_mines != 0:
+            grid[x][y].is_revealed = True
         else:
-            if BoardFunctions.grid[x + 1][y].is_flagged != False and BoardFunctions.grid[x + 1][y].num_adj_mines != 0:
-                BoardFunctions.grid[x + 1][y].is_revealed = True
+            if grid[x + 1][y].is_flagged != False and grid[x + 1][y].num_adj_mines != 0:
+                grid[x + 1][y].is_revealed = True
             else:
                 self.reveal(x+1, y)
-            if BoardFunctions.grid[x - 1][y].is_flagged != False and BoardFunctions.grid[x - 1][y].num_adj_mines != 0:
-                BoardFunctions.grid[x - 1][y].is_revealed = True
+            if grid[x - 1][y].is_flagged != False and grid[x - 1][y].num_adj_mines != 0:
+                grid[x - 1][y].is_revealed = True
             else:
                 self.reveal(x-1, y)
-            if BoardFunctions.grid[x][y + 1].is_flagged != False and BoardFunctions.grid[x][y + 1].num_adj_mines != 0:
-                BoardFunctions.grid[x][y + 1].is_revealed = True
+            if grid[x][y + 1].is_flagged != False and grid[x][y + 1].num_adj_mines != 0:
+                grid[x][y + 1].is_revealed = True
             else:
                 self.reveal(x, y + 1)
-            if BoardFunctions.grid[x][y - 1].is_flagged != False and BoardFunctions.grid[x][y - 1].num_adj_mines != 0:
-                BoardFunctions.grid[x][y - 1].is_revealed = True
+            if grid[x][y - 1].is_flagged != False and grid[x][y - 1].num_adj_mines != 0:
+                grid[x][y - 1].is_revealed = True
             else:
                 self.reveal(x, y - 1)
-            if BoardFunctions.grid[x + 1][y- 1 ].is_flagged != False and BoardFunctions.grid[x + 1][y - 1].num_adj_mines != 0:
-                BoardFunctions.grid[x + 1][y - 1].is_revealed = True
+            if grid[x + 1][y- 1 ].is_flagged != False and grid[x + 1][y - 1].num_adj_mines != 0:
+                grid[x + 1][y - 1].is_revealed = True
             else:
                 self.reveal(x+1, y - 1)
-            if BoardFunctions.grid[x + 1][y + 1].is_flagged != False and BoardFunctions.grid[x + 1][y + 1].num_adj_mines != 0:
-                BoardFunctions.grid[x + 1][y + 1].is_revealed = True
+            if grid[x + 1][y + 1].is_flagged != False and grid[x + 1][y + 1].num_adj_mines != 0:
+                grid[x + 1][y + 1].is_revealed = True
             else:
                 self.reveal(x+1, y + 1)
-            if BoardFunctions.grid[x - 1][y + 1].is_flagged != False and BoardFunctions.grid[x - 1][y + 1].num_adj_mines != 0:
-                BoardFunctions.grid[x - 1][y + 1].is_revealed = True
+            if grid[x - 1][y + 1].is_flagged != False and grid[x - 1][y + 1].num_adj_mines != 0:
+                grid[x - 1][y + 1].is_revealed = True
             else:
                 self.reveal(x-1, y + 1)
-            if BoardFunctions.grid[x - 1][y - 1].is_flagged != False and BoardFunctions.grid[x - 1][y - 1].num_adj_mines != 0:
-                BoardFunctions.grid[x - 1][y - 1].is_revealed = True
+            if grid[x - 1][y - 1].is_flagged != False and grid[x - 1][y - 1].num_adj_mines != 0:
+                grid[x - 1][y - 1].is_revealed = True
             else:
                 self.reveal(x - 1, y - 1)
 
@@ -86,4 +86,4 @@ class UserInteraction():
                 print("Game Over")
                 self.game_over = True
             else:
-                self.reveal(userX, userY)
+                self.reveal(userX, userY,grid)
