@@ -108,6 +108,7 @@ class BoardFunctions():
         else:
             return
 
+
         #def num_adj_mines(self, rows, cols):
          #   adj_mines = 0
             #for (adj_rows, adj_cols) in self.get_adj_squares(rows, cols):
