@@ -78,7 +78,7 @@ class UserInteraction():
             elif grid[userX][userY].is_flagged == False and userChoice == "f":
                 grid[userX][userY].is_flagged = True
                 numFlags -= 1
-                check_win()
+                self.check_win()
             elif grid[userX][userY].is_flagged == True and userChoice == "n":
                 grid[userX][userY].is_flagged = False
                 numFlags += 1
@@ -86,4 +86,4 @@ class UserInteraction():
                 print("Game Over")
                 self.game_over = True
             else:
-                reveal(userX, userY)
+                self.reveal(userX, userY)
