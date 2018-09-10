@@ -13,10 +13,9 @@ class BoardFunctions():
         self.boardSize = 0
         self.mines_num = 0
 
-
-    #precondition: no grid has been generated
-    #postcondition: grid generated
-    #returns: none
+    # precondition: no grid has been generated
+    # postcondition: grid generated
+    # returns: none
     def make_grid(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
@@ -45,7 +44,6 @@ class BoardFunctions():
                 # print(grid[i][j].maybe,)
                 grid[i][j].print_square()
             print('\n')
-
 
     # precondition:grid does not have formatting
     # postcondition: grid is printed to look nice for the user
@@ -132,6 +130,6 @@ class BoardFunctions():
 
 
     def mine_check(self):
-        for w in range(0, boardSize):
-            for z in range(0, boardSize):
-                count_nearby_mines(Square.x, Square.y)
+        for w in range(0, self.boardSize):
+            for z in range(0, self.boardSize):
+                self.count_nearby_mines(Square.x, Square.y)
