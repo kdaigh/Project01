@@ -1,3 +1,4 @@
+
 #boardFunctions class
 #project: mineSweeper
 #author: Clare Meyer
@@ -6,8 +7,8 @@ from random import randint
 from square import Square
 
 
-
 class BoardFunctions():
+    
     def __init__(self):
         self.boardSize = 0
         self.mines_num = 0
@@ -35,20 +36,21 @@ class BoardFunctions():
                     grid[a][b].is_mine = True
                     is_bomb = True
 
-    #precondition: the grid has been generated but not printed
-    #postcondition: grid printed ina grid-like manner
-    #returns: none
-    def just_print(self, rows, cols, grid):
+    # precondition: the grid has been generated but not printed
+    # postcondition: grid printed ina grid-like manner
+    # returns: none
+    def justPrint(self, grid, rows, cols):
         for i in range(0, rows):
             for j in range(0, cols):
-                ## print grid[i][j].maybe,
+                # print(grid[i][j].maybe,)
                 grid[i][j].print_square()
             print('\n')
 
-    #precondition:grid does not have formatting
-    #postcondition: grid is printed to look nice for the user
-    #returns: none
-    def print_board(self,rows,cols):
+
+    # precondition:grid does not have formatting
+    # postcondition: grid is printed to look nice for the user
+    # returns: none
+    def printBoard(self,rows,cols):
             rows=int(rows)
             cols=int(cols)
             grid = [[0 for x in range(cols+2)] for y in range(rows+2)]
@@ -67,6 +69,7 @@ class BoardFunctions():
                         grid[i][j]="~"
                     else:
                         grid[i][j] = 0
+
 
             for i in range(0, rows+2):
                 for j in range(0, cols+2):

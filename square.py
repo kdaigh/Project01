@@ -3,6 +3,7 @@
 # Author: Kristi Daigh
 # Created: 09/07/18 09:00AM
 
+
 class Square:
     maybe = 5
 
