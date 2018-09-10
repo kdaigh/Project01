@@ -37,4 +37,4 @@ class Square:
             elif self.num_adj_mines:
                 print(" ", end=' ')
             else:
-                print("%d" % self.num_adj_mines)
+                print("%d" % self.num_adj_mines, end=' ')
