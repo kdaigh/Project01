@@ -18,42 +18,42 @@ class UserInteraction():
         if self.grid[x][y].num_adj_mines != 0:
             self.grid[x][y].is_revealed = True
         else:
-            if 0 < self.grid[x + 1] < self.size and 0 < self.grid[y] < self.size:
+            if self.grid[x + 1] in locals() and self.grid[y] in locals():
                 if self.grid[x + 1][y].is_flagged != False and self.grid[x + 1][y].num_adj_mines != 0:
                     self.grid[x + 1][y].is_revealed = True
                 else:
                     self.reveal(x+1, y)
-            if 0 < self.grid[x - 1] < self.size and 0 < self.grid[y] < self.size:
+            if self.grid[x - 1] in locals() and self.grid[y] in locals():
                 if self.grid[x - 1][y].is_flagged != False and self.grid[x - 1][y].num_adj_mines != 0:
                     self.grid[x - 1][y].is_revealed = True
                 else:
                     self.reveal(x-1, y)
-            if 0 < self.grid[x] < self.size and 0 < self.grid[y + 1] < self.size:
+            if self.grid[x] in locals() and self.grid[y + 1] in locals():
                 if self.grid[x][y + 1].is_flagged != False and self.grid[x][y + 1].num_adj_mines != 0:
                     self.grid[x][y + 1].is_revealed = True
                 else:
                     self.reveal(x, y + 1)
-            if 0 < self.grid[x] < self.size and 0 < self.grid[y - 1] < self.size:
+            if self.grid[x] in locals() and self.grid[y - 1] in locals():
                 if self.grid[x][y - 1].is_flagged != False and self.grid[x][y - 1].num_adj_mines != 0:
                     self.grid[x][y - 1].is_revealed = True
                 else:
                     self.reveal(x, y - 1)
-            if 0 < self.grid[x + 1] < self.size and 0 < self.grid[y - 1] < self.size:
+            if self.grid[x + 1] in locals() and self.grid[y - 1] in locals():
                 if self.grid[x + 1][y - 1].is_flagged != False and self.grid[x + 1][y - 1].num_adj_mines != 0:
                     self.grid[x + 1][y - 1].is_revealed = True
                 else:
                     self.reveal(x+1, y - 1)
-            if 0 < self.grid[x + 1] < self.size and 0 < self.grid[y + 1] < self.size:
+            if self.grid[x + 1] in locals() and self.grid[y + 1] in locals():
                 if self.grid[x + 1][y + 1].is_flagged != False and self.grid[x + 1][y + 1].num_adj_mines != 0:
                     self.grid[x + 1][y + 1].is_revealed = True
                 else:
                     self.reveal(x+1, y + 1)
-            if 0 < self.grid[x - 1] < self.size and 0 < self.grid[y + 1] < self.size:
+            if self.grid[x - 1] in locals() and self.grid[y + 1] in locals():
                 if self.grid[x - 1][y + 1].is_flagged != False and self.grid[x - 1][y + 1].num_adj_mines != 0:
                     self.grid[x - 1][y + 1].is_revealed = True
                 else:
                     self.reveal(x-1, y + 1)
-            if 0 < self.grid[x - 1] < self.size and 0 < self.grid[y - 1] < self.size:
+            if self.grid[x - 1] in locals() and self.grid[y - 1] in locals():
                 if self.grid[x - 1][y - 1].is_flagged != False and self.grid[x - 1][y - 1].num_adj_mines != 0:
                     self.grid[x - 1][y - 1].is_revealed = True
                 else:
