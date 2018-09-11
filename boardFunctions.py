@@ -61,7 +61,7 @@ class BoardFunctions():
                     or i==1 and j==1):
                         grid[i][j]=" "
                     elif(j == 0):
-                        grid[i][j]= i-1
+                        grid[i][j]= i-2
                     elif(i == 0):
                         grid[i][j]=j-2
                     elif(j == 1):
