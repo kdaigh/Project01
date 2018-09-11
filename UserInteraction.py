@@ -14,6 +14,31 @@ class UserInteraction:
         self.grid = self.myBoard.make_grid(self.size)
         self.myBoard.generate_mines(self.size, self.grid)
 
+    def count_nearby_mines(self, x, y):
+        adj_mine_counter = 0
+        if self.grid[x + 1][y].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x + 1][y + 1].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x + 1][y - 1].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x][y + 1].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x][y - 1].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x - 1][y].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x - 1][y + 1].is_mine:
+            adj_mine_counter += 1
+        if self.grid[x - 1][y - 1].is_mine:
+            adj_mine_counter += 1
+        self.grid.num_adj_mines = adj_mine_counter
+
+    def mine_check(self):
+        for w in range(0, self.size):
+            for z in range(0, self.size):
+                self.count_nearby_mines(self.grid.x, self.grid.y)
+
     def reveal(self, x, y):
         if self.grid[x][y].num_adj_mines != 0:
             self.grid[x][y].is_revealed = True
