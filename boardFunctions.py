@@ -63,18 +63,21 @@ class BoardFunctions():
                     elif(j == 0):
                         grid[i][j]= i-1
                     elif(i == 0):
-                        grid[i][j]=j-1
+                        grid[i][j]=j-2
                     elif(j == 1):
                         grid[i][j]="|"
                     elif(i==1):
-                        grid[i][j]="~"
+                        grid[i][j]="--"
                     else:
                         grid[i][j] = main_grid[i-2][j-2]
 
             for i in range(0, size+2):
                 for j in range(0, size+2):
                     if(i==0 or i==1 or j==0 or j==1):
-                        print(grid[i][j], end=' ')
+                        if((i==0 and j>1) or (j==0 and i>1)):
+                            print((str(grid[i][j]).zfill(2)),end=' ')
+                        else:
+                            print(grid[i][j], end=' ')
                     else:
                         grid[i][j].print_square()
                 print('\n', end=' ')
