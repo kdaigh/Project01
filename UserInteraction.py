@@ -76,8 +76,8 @@ class UserInteraction():
             numFlags = self.mines
             self.myBoard.print_board(self.size, self.grid)
             print("Number of flags: %s" % numFlags)
-            userX = int(input("Enter an X coordinate: "))
-            userY = int(input("Enter a Y coordinate: "))
+            userX = int(input("Enter an Y coordinate: "))
+            userY = int(input("Enter a X coordinate: "))
             userChoice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
             if userX > self.size or userY > self.size:
                 print("Invalid Try again")
