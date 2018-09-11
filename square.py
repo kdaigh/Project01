@@ -19,7 +19,7 @@ class Square:
         self.is_flagged = False
         ## @var is_revealed
         #  reveal status flag
-        self.is_revealed = True
+        self.is_revealed = False
         ## @var num_adj_mines
         #  tracks number of adjacent mines
         self.num_adj_mines = 0
