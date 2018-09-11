@@ -72,8 +72,8 @@ class UserInteraction():
             return 0
 
     def play(self):
+        numFlags = self.mines
         while(self.game_over != True):
-            numFlags = self.mines
             self.myBoard.print_board(self.size, self.grid)
             print("Number of flags: %s" % numFlags)
             userX = int(input("Enter an Y coordinate: "))
