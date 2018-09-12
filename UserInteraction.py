@@ -108,6 +108,8 @@ class UserInteraction:
                 print("Invalid try again")
             elif self.grid[user_x][user_y].is_flagged == False and user_choice == "n":
                 print("Invalid try again")
+            elif self.grid[user_x][user_y].is_flagged == False and numFlags == 0 and user_choice == "f":
+                print("Out of flags. Try again.")
             elif self.grid[user_x][user_y].is_flagged == False and user_choice == "f":
                 self.grid[user_x][user_y].is_flagged = True
                 numFlags -= 1
