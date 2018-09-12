@@ -84,9 +84,6 @@ class UserInteraction():
         self.myBoard.generate_mines(self.size,self.grid)
 
         while(self.game_over != True):
-            ##SEEING IF REVEAL WAS SET TO TRUE
-            print(self.grid[0][0].is_revealed)
-            ##END OF THIS CHECK
             self.myBoard.print_board(self.size, self.grid)
             print("Number of flags: %s" % numFlags)
             userX = int(input("Enter an Y coordinate: "))
