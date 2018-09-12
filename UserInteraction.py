@@ -5,56 +5,55 @@ from square import Square
 class UserInteraction():
     ##variable to check when the game ends
 
-    def __init__(self,size,mines):
-        self.size=size
-        self.mines=mines
+    def __init__(self):
+        self.size=0
+        self.mines=0
+        self.num_flags=0
         self.game_over = False
+        self.grid=[][]
         self.myBoard = BoardFunctions()
-        self.myBoard.mines_num = mines
-        self.grid = self.myBoard.make_grid(self.size)
-        self.myBoard.generate_mines(self.size,self.grid)
 
     def reveal(self, x, y):
         if self.grid[x][y].num_adj_mines != 0:
             self.grid[x][y].is_revealed = True
         else:
-            if self.grid[x + 1] in locals() and self.grid[y] in locals():
-                if self.grid[x + 1][y].is_flagged != False and self.grid[x + 1][y].num_adj_mines != 0:
+            if self.grid[x + 1] in range(0, x) and self.grid[y] in range(0,y):
+                if self.grid[x + 1][y].is_flagged == False and self.grid[x + 1][y].num_adj_mines != 0:
                     self.grid[x + 1][y].is_revealed = True
                 else:
                     self.reveal(x+1, y)
-            if self.grid[x - 1] in locals() and self.grid[y] in locals():
-                if self.grid[x - 1][y].is_flagged != False and self.grid[x - 1][y].num_adj_mines != 0:
+            if self.grid[x - 1] in range(0, x) and self.grid[y] in range(0,y):
+                if self.grid[x - 1][y].is_flagged == False and self.grid[x - 1][y].num_adj_mines != 0:
                     self.grid[x - 1][y].is_revealed = True
                 else:
                     self.reveal(x-1, y)
-            if self.grid[x] in locals() and self.grid[y + 1] in locals():
-                if self.grid[x][y + 1].is_flagged != False and self.grid[x][y + 1].num_adj_mines != 0:
+            if self.grid[x] in range(0, x) and self.grid[y + 1] in range(0,y):
+                if self.grid[x][y + 1].is_flagged == False and self.grid[x][y + 1].num_adj_mines != 0:
                     self.grid[x][y + 1].is_revealed = True
                 else:
                     self.reveal(x, y + 1)
-            if self.grid[x] in locals() and self.grid[y - 1] in locals():
-                if self.grid[x][y - 1].is_flagged != False and self.grid[x][y - 1].num_adj_mines != 0:
+            if self.grid[x] in range(0, x) and self.grid[y - 1] in range(0,y):
+                if self.grid[x][y - 1].is_flagged == False and self.grid[x][y - 1].num_adj_mines != 0:
                     self.grid[x][y - 1].is_revealed = True
                 else:
                     self.reveal(x, y - 1)
-            if self.grid[x + 1] in locals() and self.grid[y - 1] in locals():
-                if self.grid[x + 1][y - 1].is_flagged != False and self.grid[x + 1][y - 1].num_adj_mines != 0:
+            if self.grid[x + 1] in range(0, x) and self.grid[y - 1] in range(0,y):
+                if self.grid[x + 1][y - 1].is_flagged == False and self.grid[x + 1][y - 1].num_adj_mines != 0:
                     self.grid[x + 1][y - 1].is_revealed = True
                 else:
                     self.reveal(x+1, y - 1)
-            if self.grid[x + 1] in locals() and self.grid[y + 1] in locals():
-                if self.grid[x + 1][y + 1].is_flagged != False and self.grid[x + 1][y + 1].num_adj_mines != 0:
+            if self.grid[x + 1] in range(0, x) and self.grid[y + 1] in range(0,y):
+                if self.grid[x + 1][y + 1].is_flagged == False and self.grid[x + 1][y + 1].num_adj_mines != 0:
                     self.grid[x + 1][y + 1].is_revealed = True
                 else:
                     self.reveal(x+1, y + 1)
-            if self.grid[x - 1] in locals() and self.grid[y + 1] in locals():
-                if self.grid[x - 1][y + 1].is_flagged != False and self.grid[x - 1][y + 1].num_adj_mines != 0:
+            if self.grid[x - 1] in range(0, x) and self.grid[y + 1] in range(0,y):
+                if self.grid[x - 1][y + 1].is_flagged == False and self.grid[x - 1][y + 1].num_adj_mines != 0:
                     self.grid[x - 1][y + 1].is_revealed = True
                 else:
                     self.reveal(x-1, y + 1)
-            if self.grid[x - 1] in locals() and self.grid[y - 1] in locals():
-                if self.grid[x - 1][y - 1].is_flagged != False and self.grid[x - 1][y - 1].num_adj_mines != 0:
+            if self.grid[x - 1] in range(0, x) and self.grid[y - 1] in range(0,y):
+                if self.grid[x - 1][y - 1].is_flagged == False and self.grid[x - 1][y - 1].num_adj_mines != 0:
                     self.grid[x - 1][y - 1].is_revealed = True
                 else:
                     self.reveal(x - 1, y - 1)
@@ -72,8 +71,22 @@ class UserInteraction():
             return 0
 
     def play(self):
+
+        print("Enter board size, between 2 and 15")
+        self.size = int(input())
+        max_mines = self.board_size ** 2 - 1
+        print("Enter the number of mines, between 1 and " + str(max_mines))
+        self.mines = int(input())
+
         numFlags = self.mines
+
+        self.grid = self.myBoard.make_grid(self.size)
+        self.myBoard.generate_mines(self.size,self.grid)
+
         while(self.game_over != True):
+            ##SEEING IF REVEAL WAS SET TO TRUE
+            print(self.grid[0][0].is_revealed)
+            ##END OF THIS CHECK
             self.myBoard.print_board(self.size, self.grid)
             print("Number of flags: %s" % numFlags)
             userX = int(input("Enter an Y coordinate: "))
