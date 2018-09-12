@@ -3,7 +3,6 @@ from square import Square
 
 
 class UserInteraction():
-    ##variable to check when the game ends
 
     def __init__(self):
         self.size=0
