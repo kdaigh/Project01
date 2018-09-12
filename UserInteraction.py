@@ -15,7 +15,10 @@ class UserInteraction:
         self.myBoard.generate_mines(self.size, self.grid)
         self.choice = 1
 
-     
+    #@precondition: none
+    #@postcondition: user inputs to start the game
+    #@retuen: none
+    #@author: Ayah Alkhatib
     def game_menu(self):
          print("Welcome to Minesweeper!")
          print("Please, chose from the menu:")
@@ -32,6 +35,13 @@ class UserInteraction:
 
          else:
              return
+    def play_again(self):
+        play_again = input ("If you want to play again press 'p' or press 'q' to exit: ")
+        if play_again == 'p':
+            self.game_menu()
+        else:
+            print ("Goodbye!")
+            return
 
 
     def count_nearby_mines(self, x, y):
@@ -115,7 +125,11 @@ class UserInteraction:
             self.game_over = True
         else:
             return 0
-
+   
+    #@precondiotn:
+    #@postcondition:
+    #@returns:
+    #@auther
     def play(self):
         numFlags = self.mines
         while(self.game_over == False):
@@ -149,11 +163,6 @@ class UserInteraction:
             elif self.grid[user_x][user_y].is_mine == True and user_choice == "r":
                 print("Game Over")
                 self.game_over = True
-                play_again = input ("If you want to play again press 'p' or press 'q' to exit: ")
-                if play_again == 'p':
-                    self.game_menu()
-                else:
-                    print ("Goodbye!")
-                    return
+                self.play_again()
             else:
                 self.reveal(user_x, user_y)
