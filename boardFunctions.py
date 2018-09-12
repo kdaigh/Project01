@@ -1,3 +1,4 @@
+
 #boardFunctions class
 #project: mineSweeper
 #author: Clare Meyer

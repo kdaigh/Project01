@@ -10,7 +10,7 @@ class UserInteraction():
         self.mines=0
         self.num_flags=0
         self.game_over = False
-        self.grid=[][]
+        self.grid=[0][0]
         self.myBoard = BoardFunctions()
 
     def reveal(self, x, y):
@@ -69,7 +69,7 @@ class UserInteraction():
             self.game_over = True
         else:
             return 0
-   
+
     #@precondiotn:
     #@postcondition:
     #@returns:
@@ -78,7 +78,7 @@ class UserInteraction():
 
         print("Enter board size, between 2 and 15")
         self.size = int(input())
-        max_mines = self.board_size ** 2 - 1
+        max_mines = self.size ** 2 - 1
         print("Enter the number of mines, between 1 and " + str(max_mines))
         self.mines = int(input())
 
