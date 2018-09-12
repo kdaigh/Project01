@@ -5,14 +5,34 @@ from square import Square
 class UserInteraction:
     ##variable to check when the game ends
 
-    def __init__(self, size, mines):
-        self.size = size
-        self.mines = mines
+    def __init__(self):
+        self.size = 2
+        self.mines = 1
         self.game_over = False
         self.myBoard = BoardFunctions()
-        self.myBoard.mines_num = mines
+        self.myBoard.mines_num = self.mines 
         self.grid = self.myBoard.make_grid(self.size)
         self.myBoard.generate_mines(self.size, self.grid)
+        self.choice = 1
+
+     
+    def game_menu(self):
+         print("Welcome to Minesweeper!")
+         print("Please, chose from the menu:")
+         print("""1. Play the Game
+2. Quit""")
+         self.choice = int(input())
+         if self.choice == 1:
+             print("Please Enter the board size, it should be at least 2, and maximum 15")
+             self.size = int(input())
+             print("Awesome! Let the fun begin!")
+             max_mines = self.size ** 2 - 1
+             print("Enter the number of mines, it should be between 1 and " + str(max_mines))
+             self.mines = int(input())
+
+         else:
+             return
+
 
     def count_nearby_mines(self, x, y):
         adj_mine_counter = 0
@@ -129,5 +149,11 @@ class UserInteraction:
             elif self.grid[user_x][user_y].is_mine == True and user_choice == "r":
                 print("Game Over")
                 self.game_over = True
+                play_again = input ("If you want to play again press 'p' or press 'q' to exit: ")
+                if play_again == 'p':
+                    self.game_menu()
+                else:
+                    print ("Goodbye!")
+                    return
             else:
                 self.reveal(user_x, user_y)
