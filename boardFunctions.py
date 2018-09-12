@@ -1,4 +1,3 @@
-
 #boardFunctions class
 #project: mineSweeper
 #author: Clare Meyer
@@ -85,7 +84,7 @@ class BoardFunctions():
                     else:
                         grid[i][j].print_square()
                 print('\n', end=' ')
-p
+
     def count_nearby_mines(self, x, y):
         adj_mine_counter = 0
         if Square(x + 1, y).is_mine == True:

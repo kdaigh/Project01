@@ -2,6 +2,7 @@ from boardFunctions import BoardFunctions
 from square import Square
 
 
+
 class UserInteraction():
 
     def __init__(self):
@@ -68,7 +69,11 @@ class UserInteraction():
             self.game_over = True
         else:
             return 0
-
+   
+    #@precondiotn:
+    #@postcondition:
+    #@returns:
+    #@auther
     def play(self):
 
         print("Enter board size, between 2 and 15")
@@ -82,25 +87,37 @@ class UserInteraction():
         self.grid = self.myBoard.make_grid(self.size)
         self.myBoard.generate_mines(self.size,self.grid)
 
-        while(self.game_over != True):
+        while(self.game_over == False):
             self.myBoard.print_board(self.size, self.grid)
             print("Number of flags: %s" % numFlags)
-            userX = int(input("Enter an Y coordinate: "))
-            userY = int(input("Enter a X coordinate: "))
-            userChoice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
-            if userX > self.size or userY > self.size:
-                print("Invalid Try again")
-            elif self.grid[userX][userY].is_flagged == False and userChoice == "n":
+            user_x = int(input("Enter an Y coordinate: "))
+            user_y = int(input("Enter a X coordinate: "))
+            user_choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
+            if user_x > self.size or user_y > self.size:
                 print("Invalid try again")
-            elif self.grid[userX][userY].is_flagged == False and userChoice == "f":
-                self.grid[userX][userY].is_flagged = True
+            elif self.grid[user_x][user_y].is_flagged == False and user_choice == "n":
+                print("Invalid try again")
+            elif self.grid[user_x][user_y].is_flagged == False and user_choice == "f":
+                self.grid[user_x][user_y].is_flagged = True
                 numFlags -= 1
                 self.check_win()
-            elif self.grid[userX][userY].is_flagged == True and userChoice == "n":
-                self.grid[userX][userY].is_flagged = False
+            elif self.grid[user_x][user_y].is_flagged == True and user_choice == "f":
+                print("Space is already flagged. Try again.")
+            elif self.grid[user_x][user_y].is_revealed == True and user_choice == "f":
+                print("You can't flag a revealed space. Try again.")
+            elif self.grid[user_x][user_y].is_revealed == True and user_choice == "n":
+                print("You can't unflag a revealed space. Try again.")
+            elif self.grid[user_x][user_y].is_flagged == True and user_choice == "n":
+                self.grid[user_x][user_y].is_flagged = False
                 numFlags += 1
-            elif self.grid[userX][userY].is_mine == True and userChoice == "r":
+            #Testing to see if is_revealed is being switched to true
+            elif self.grid[user_x][user_y].is_revealed == True and self.grid[user_x][user_y].is_mine == False and user_choice == "r":
+                print("Space is already revealed. Try again.")
+            elif self.grid[user_x][user_y].is_flagged == True and user_choice == "r":
+                print("You can't reveal a flagged space. Unflag before guessing this space or guess a different space.")
+            elif self.grid[user_x][user_y].is_mine == True and user_choice == "r":
                 print("Game Over")
                 self.game_over = True
+                self.play_again()
             else:
-                self.reveal(userX, userY)
+                self.reveal(user_x, user_y)

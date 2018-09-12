@@ -3,34 +3,33 @@
 # Author: Ayah Alkhatib
 # Created: 09/08/18 08:00PM
 
-
-class Menu:
+class Menu():
 
     def __init__(self):
-        self.choice = 1
+        self.choice = 2
         self.mines_num = 0
         self.board_size = 0
-        self.is_winner = False
+        #self.game_over = game_over
         self.is_loser = False
 
-    def game_menu(self):
-        print("Welcome to Minesweeper!")
-        print("Please, chose from the menu:")
+
+#    def game_menu(self):
+#       print("Welcome to Minesweeper!")
+#       print("Please, chose from the menu:")
         print("""1. Play the Game
 2. Quit""")
-        choice = int(input())
-        if choice == 1:
-            print("Please Enter the board size, it should be at least 2, and maximum 15")
-            self.board_size = int(input())
-            print("Awesome! Let the fun begin!")
-            max_mines = self.board_size ** 2 - 1
-            print("Enter the number of mines, it should be between 1 and " + str(max_mines))
-            self.mines_num = int(input())
+#        self.choice = int(input())
+#        if self.choice == 1:
+#            print("Please Enter the board size, it should be at least 2, and maximum 15")
+#           self.board_size = int(input())
+#           print("Awesome! Let the fun begin!")
+#           max_mines = self.board_size ** 2 - 1
+#           print("Enter the number of mines, it should be between 1 and " + str(max_mines))
+#           self.mines_num = int(input())
 
-            # return self.board_size, self.mines_num
+#       else:
+#           return
 
-        else:
-            return
 
     def play_again(self):
         if self.is_winner:
