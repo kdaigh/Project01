@@ -85,28 +85,28 @@ class BoardFunctions():
                         grid[i][j].print_square()
                 print('\n', end=' ')
 
-    # def count_nearby_mines(self, x, y):
-    #     adj_mine_counter = 0
-    #     if Square(x + 1, y).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x + 1, y + 1).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x + 1, y - 1).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x, y + 1).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x, y - 1).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x - 1, y).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x - 1, y + 1).is_mine == True:
-    #         adj_mine_counter += 1
-    #     if Square(x - 1, y - 1).is_mine == True:
-    #         adj_mine_counter += 1
-    #     Square(x, y).num_adj_mines = adj_mine_counter
-    #
-    #
-    # def mine_check(self):
-    #     for w in range(0, boardSize):
-    #         for z in range(0, boardSize):
-    #             count_nearby_mines(Square.x, Square.y)
+    def count_nearby_mines(self, x, y):
+        adj_mine_counter = 0
+        if Square(x + 1, y).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x + 1, y + 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x + 1, y - 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x, y + 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x, y - 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x - 1, y).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x - 1, y + 1).is_mine == True:
+            adj_mine_counter += 1
+        if Square(x - 1, y - 1).is_mine == True:
+            adj_mine_counter += 1
+        Square(x, y).num_adj_mines = adj_mine_counter
+
+
+    def mine_check(self):
+        for w in range(0, boardSize):
+            for z in range(0, boardSize):
+                count_nearby_mines(Square.x, Square.y)
