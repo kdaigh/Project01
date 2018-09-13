@@ -101,25 +101,48 @@ class BoardFunctions():
     #  @param y, y-coordinate of cell
     #  @param: size, size of the grid
     #  @param: grid, grid to be checked
-    def count_nearby_mines(self, x, y):
-        adj_mine_counter = 0
-        if Square(x + 1, y).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x + 1, y + 1).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x + 1, y - 1).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x, y + 1).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x, y - 1).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x - 1, y).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x - 1, y + 1).is_mine == True:
-            adj_mine_counter += 1
-        if Square(x - 1, y - 1).is_mine == True:
-            adj_mine_counter += 1
-        Square(x, y).num_adj_mines = adj_mine_counter
+    def count_nearby_mines(self, x, y, size, grid):
+        if grid[x][y].is_mine:
+            return
+        if 0 < x:
+            # top left
+            if 0 < y:
+                if grid[x - 1][y - 1].is_mine:
+                    grid[x][y].num_adj_mines += 1
+
+            # top middle
+            if grid[x - 1][y].is_mine:
+                grid[x][y].num_adj_mines += 1
+
+            # top right
+            if y < size:
+                if grid[x - 1][y + 1].is_mine:
+                    grid[x][y].num_adj_mines += 1
+
+        # left
+        if 0 < y:
+            if grid[x][y - 1].is_mine:
+                grid[x][y].num_adj_mines += 1
+
+        # right
+        if y < size:
+            if grid[x][y + 1].is_mine:
+                grid[x][y].num_adj_mines += 1
+
+        if x < size:
+            # bottom left
+            if 0 < y:
+                if grid[x + 1][y - 1].is_mine:
+                    grid[x][y].num_adj_mines += 1
+
+            # bottom middle
+            if grid[x + 1][y].is_mine:
+                grid[x][y].num_adj_mines += 1
+
+            # bottom right
+            if y < size:
+                if grid[x + 1][y + 1].is_mine:
+                    grid[x][y].num_adj_mines += 1
 
     ## Counts/labels number of adjacent mines for board
     #  @author: Kyle
