@@ -38,6 +38,12 @@ class Executive:
         else:
             self.grid[x][y].is_revealed = True
 
+    def is_valid_cell(self,x,y):
+        if(x<0 or y<0 or x>self.size-1 or y>self.size-1 ):
+            return False
+        else:
+            return True
+
     ## Reveals cells that aren't mines; Called by reveal()
     #  @authors: Ethan, Kristi
     #  @param x, x-coordinate of cell
