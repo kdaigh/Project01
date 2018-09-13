@@ -1,9 +1,13 @@
-# Menu Object
-# Project: Minesweeper
-# Author: Ayah Alkhatib
-# Created: 09/08/18 08:00PM
+## @package menu
+#  Source file for the menu object
+#
+#  Project: Minesweeper
+#  Author: Ayah Alkhatib
+#  Created: 09/08/18
+#  Completed:
 
-class Menu():
+
+class Menu:
 
     def __init__(self):
         self.choice = 2
