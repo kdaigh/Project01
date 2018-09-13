@@ -10,7 +10,7 @@ from random import randint
 from square import Square
 
 
-class BoardFunctions():
+class BoardFunctions:
 
     def __init__(self):
         self.boardSize = 0
