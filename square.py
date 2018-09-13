@@ -37,4 +37,4 @@ class Square:
             elif self.num_adj_mines:
                 print(str(self.num_adj_mines).ljust(2), end=' ')
             else:
-                print(str("#").ljust(2), end=' ')
+                print(str(" ").ljust(2), end=' ')
