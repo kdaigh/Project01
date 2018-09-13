@@ -124,6 +124,8 @@ class Executive:
             choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
             if x > self.size or y > self.size:
                 print("Invalid try again")
+            elif(choice!="f" and choice!="n" and choice!="r"):
+                print("Invalid choice try again")
             elif not self.grid[x][y].is_flagged and choice == "n":
                 print("Invalid try again")
             elif not self.grid[x][y].is_flagged and self.num_flags == 0 and choice == "f":
