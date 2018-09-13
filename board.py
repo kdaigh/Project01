@@ -35,12 +35,14 @@ class Board:
     #  @param: size, size of the grid
     #  @param: grid, grid to be populated
     #  @post: the grid is populated with mines
-    def generate_mines(self, size, grid):
+    def generate_mines(self, mines, size, grid):
+        self.mines_num=mines;
+        self.boardSize=size;
         for i in range(0, self.mines_num):
             is_bomb = False
             while not is_bomb:
-                a = randint(0, size - 1)
-                b = randint(0, size - 1)
+                a = randint(0, self.boardSize - 1)
+                b = randint(0, self.boardSize - 1)
                 if not grid[a][b].is_mine:
                     grid[a][b].is_mine = True
                     is_bomb = True

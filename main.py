@@ -7,8 +7,9 @@
 #  Completed:
 
 from menu import Menu
-from board import BoardFunctions
+from board import Board
 from executive import Executive
 
 playing = Executive()
+playing.setup()
 playing.play()
