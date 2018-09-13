@@ -13,11 +13,10 @@ class BoardFunctions():
         self.boardSize = 0
         self.mines_num = 0
 
-
-    #@precondition: no grid has been generated
-    #@postcondition: grid generated
-    #@returns: grid
-    #@author: Clare
+    ## Generates a grid object
+    #  @author: Clare
+    #  @param: size, size of the grid
+    #  @returns: grid
     def make_grid(self,size):
             size=int(size)
             grid = [[0 for x in range(size)] for y in range(size)]
@@ -26,6 +25,13 @@ class BoardFunctions():
                     grid[i][j] = Square()
             return(grid)
 
+    ## Randomly places mines on board
+    #  @author: Ayah
+    #  @pre: a grid has been generated
+    #  @param: num_mines, user-selected number of mines
+    #  @param: size, size of the grid
+    #  @param: grid, grid to be populated
+    #  @post: the grid is populated with mines
     def generate_mines(self,size,grid):
         for i in range(0, self.mines_num):
             is_bomb = False
@@ -36,10 +42,12 @@ class BoardFunctions():
                     grid[a][b].is_mine = True
                     is_bomb = True
 
-    #@precondition: the grid has been generated but not printed
-    #@postcondition: grid printed ina grid-like manner
-    #@returns: none
-    #@author:Clare
+    ## Prints the board with minimal formatting
+    #  @author:Clare
+    #  @pre: the grid has been generated
+    #  @param: size, size of the grid
+    #  @param: grid, grid to be printed
+    #  @post: grid printed in a grid-like manner
     def just_print(self, size, grid):
         for i in range(0, size):
             for j in range(0, size):
@@ -47,11 +55,12 @@ class BoardFunctions():
                 grid[i][j].print_square()
             print('\n', end=' ')
 
-
-    #@precondition:grid does not have formatting
-    #@postcondition: grid is printed to look nice for the user
-    #@returns: none
-    #@author: Clare
+    ## Prints a formatted game board
+    #  @author: Clare
+    #  @pre: grid does not have formatting
+    #  @param: size, size of the grid
+    #  @param: main_grid, grid to be printed
+    #  @post: grid is printed to look nice for the user
     def print_board(self,size,main_grid):
             size=int(size)
             grid = [[0 for x in range(size+2)] for y in range(size+2)]
@@ -86,6 +95,12 @@ class BoardFunctions():
                         grid[i][j].print_square()
                 print('\n', end=' ')
 
+    ## Counts number of adjacent mines for a given cell
+    #  @authors: Kyle, Kristi
+    #  @param x, x-coordinate of cell
+    #  @param y, y-coordinate of cell
+    #  @param: size, size of the grid
+    #  @param: grid, grid to be checked
     def count_nearby_mines(self, x, y):
         adj_mine_counter = 0
         if Square(x + 1, y).is_mine == True:
@@ -106,7 +121,11 @@ class BoardFunctions():
             adj_mine_counter += 1
         Square(x, y).num_adj_mines = adj_mine_counter
 
-
+    ## Counts/labels number of adjacent mines for board
+    #  @author: Kyle
+    #  @param: size, size of the grid
+    #  @param: grid, grid to be checked
+    #  @post: each square is labeled with num_adj_mines
     def mine_check(self):
         for w in range(0, boardSize):
             for z in range(0, boardSize):
