@@ -21,50 +21,39 @@ class UserInteraction:
         self.grid = [0][0]
         self.myBoard = BoardFunctions()
 
+    ## Recursively calls reveal_adjacent() to uncover squares
+    #  @authors: Ethan, Kristi
+    #  @param x, x-coordinate of cell
+    #  @param y, y-coordinate of cell
     def reveal(self, x, y):
-        if self.grid[x][y].num_adj_mines != 0:
-            self.grid[x][y].is_revealed = True
+        if self.grid[x][y].num_adj_mines == 0:
+            self.reveal_adjacent(x - 1, y - 1)
+            self.reveal_adjacent(x - 1, y)
+            self.reveal_adjacent(x - 1, y + 1)
+            self.reveal_adjacent(x + 1, y)
+            self.reveal_adjacent(x, y - 1)
+            self.reveal_adjacent(x, y + 1)
+            self.reveal_adjacent(x + 1, y - 1)
+            self.reveal_adjacent(x + 1, y + 1)
         else:
-            if self.grid[x + 1] in range(0, x) and self.grid[y] in range(0,y):
-                if self.grid[x + 1][y].is_flagged == False and self.grid[x + 1][y].num_adj_mines != 0:
-                    self.grid[x + 1][y].is_revealed = True
-                else:
-                    self.reveal(x+1, y)
-            if self.grid[x - 1] in range(0, x) and self.grid[y] in range(0,y):
-                if self.grid[x - 1][y].is_flagged == False and self.grid[x - 1][y].num_adj_mines != 0:
-                    self.grid[x - 1][y].is_revealed = True
-                else:
-                    self.reveal(x-1, y)
-            if self.grid[x] in range(0, x) and self.grid[y + 1] in range(0,y):
-                if self.grid[x][y + 1].is_flagged == False and self.grid[x][y + 1].num_adj_mines != 0:
-                    self.grid[x][y + 1].is_revealed = True
-                else:
-                    self.reveal(x, y + 1)
-            if self.grid[x] in range(0, x) and self.grid[y - 1] in range(0,y):
-                if self.grid[x][y - 1].is_flagged == False and self.grid[x][y - 1].num_adj_mines != 0:
-                    self.grid[x][y - 1].is_revealed = True
-                else:
-                    self.reveal(x, y - 1)
-            if self.grid[x + 1] in range(0, x) and self.grid[y - 1] in range(0,y):
-                if self.grid[x + 1][y - 1].is_flagged == False and self.grid[x + 1][y - 1].num_adj_mines != 0:
-                    self.grid[x + 1][y - 1].is_revealed = True
-                else:
-                    self.reveal(x+1, y - 1)
-            if self.grid[x + 1] in range(0, x) and self.grid[y + 1] in range(0,y):
-                if self.grid[x + 1][y + 1].is_flagged == False and self.grid[x + 1][y + 1].num_adj_mines != 0:
-                    self.grid[x + 1][y + 1].is_revealed = True
-                else:
-                    self.reveal(x+1, y + 1)
-            if self.grid[x - 1] in range(0, x) and self.grid[y + 1] in range(0,y):
-                if self.grid[x - 1][y + 1].is_flagged == False and self.grid[x - 1][y + 1].num_adj_mines != 0:
-                    self.grid[x - 1][y + 1].is_revealed = True
-                else:
-                    self.reveal(x-1, y + 1)
-            if self.grid[x - 1] in range(0, x) and self.grid[y - 1] in range(0,y):
-                if self.grid[x - 1][y - 1].is_flagged == False and self.grid[x - 1][y - 1].num_adj_mines != 0:
-                    self.grid[x - 1][y - 1].is_revealed = True
-                else:
-                    self.reveal(x - 1, y - 1)
+            self.grid[x][y].is_revealed = True
+
+    ## Reveals cells that aren't mines; Called by reveal()
+    #  @authors: Ethan, Kristi
+    #  @param x, x-coordinate of cell
+    #  @param y, y-coordinate of cell
+    def reveal_adjacent(self, x, y):
+        if not self.is_valid_cell(x, y):
+            return
+        if self.grid[x][y].is_revealed or self.grid[x][y].is_flagged:
+            return
+        if self.grid[x][y].num_adj_mines == 0:
+            self.grid[x][y].is_revealed = True
+            self.reveal(x, y)
+        else:
+            if not self.grid[x][y].is_mine:
+                self.grid[x][y].is_revealed = True
+            return
 
     ## Checks if all mines are flagged
     #  @author: Ethan
