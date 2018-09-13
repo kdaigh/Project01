@@ -126,7 +126,7 @@ class BoardFunctions():
     #  @param: size, size of the grid
     #  @param: grid, grid to be checked
     #  @post: each square is labeled with num_adj_mines
-    def mine_check(self):
-        for w in range(0, boardSize):
-            for z in range(0, boardSize):
-                count_nearby_mines(Square.x, Square.y)
+    def mine_check(self, size, grid):
+        for w in range(size):
+            for z in range(size):
+                self.count_nearby_mines(w, z, size - 1, grid)

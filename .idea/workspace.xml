@@ -54,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/boardFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+            <state relative-caret-position="438">
+              <caret line="131" column="61" selection-start-line="131" selection-start-column="61" selection-end-line="131" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -74,7 +74,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="135" />
+    <option name="x" value="244" />
     <option name="y" value="23" />
     <option name="width" value="880" />
     <option name="height" value="682" />
@@ -162,8 +162,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/boardFunctions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+        <state relative-caret-position="438">
+          <caret line="131" column="61" selection-start-line="131" selection-start-column="61" selection-end-line="131" selection-end-column="61" />
         </state>
       </provider>
     </entry>
