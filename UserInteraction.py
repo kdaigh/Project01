@@ -72,7 +72,7 @@ class UserInteraction:
         flag_on_mine = 0
         for i in range(0, self.size):
             for x in range(0, self.size):
-                if self.grid[i][x].is_mine == True and self.grid[i][x].is_flagged == True:
+                if self.grid[i][x].is_mine and self.grid[i][x].is_flagged:
                     flag_on_mine += 1
         if flag_on_mine == self.mines:
             print("You Win!")

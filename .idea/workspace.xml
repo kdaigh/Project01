@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ee724e8-1f1b-421f-a14f-b62c9ae9d072" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/boardFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/boardFunctions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserInteraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserInteraction.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UserInteraction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="1110">
+              <caret line="74" column="73" selection-start-line="74" selection-start-column="73" selection-end-line="74" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -71,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/boardFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1395">
@@ -97,15 +97,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/UserInteraction.py" />
         <option value="$PROJECT_DIR$/menu.py" />
         <option value="$PROJECT_DIR$/boardFunctions.py" />
+        <option value="$PROJECT_DIR$/UserInteraction.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="203" />
-    <option name="y" value="24" />
+    <option name="x" value="229" />
+    <option name="y" value="23" />
     <option name="width" value="880" />
     <option name="height" value="682" />
   </component>
@@ -157,7 +157,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="47" y="23" width="880" height="682" extended-state="0" />
+    <frame x="229" y="23" width="880" height="682" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -206,17 +206,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UserInteraction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/boardFunctions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1395">
           <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UserInteraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="73" selection-start-line="74" selection-start-column="73" selection-end-line="74" selection-end-column="73" />
         </state>
       </provider>
     </entry>
