@@ -1,4 +1,4 @@
-## @package UserInteraction
+## @package executive
 #  Source file for the UI class
 #
 #  Project: Minesweeper
@@ -6,10 +6,10 @@
 #  Created: 09/08/18
 #  Completed:
 
-from boardFunctions import BoardFunctions
+from board import Board
 
 
-class UserInteraction:
+class Executive:
 
     ## Constructor; initializes class variables
     #  @author: Ethan
@@ -19,7 +19,7 @@ class UserInteraction:
         self.num_flags = 0
         self.game_over = False
         self.grid = [0][0]
-        self.myBoard = BoardFunctions()
+        self.myBoard = Board()
 
     ## Recursively calls reveal_adjacent() to uncover squares
     #  @authors: Ethan, Kristi

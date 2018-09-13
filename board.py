@@ -1,4 +1,4 @@
-## @package boardFunctions
+## @package board
 #  Source file for the board object
 #
 #  Project: Minesweeper
@@ -10,7 +10,7 @@ from random import randint
 from square import Square
 
 
-class BoardFunctions:
+class Board:
 
     def __init__(self):
         self.boardSize = 0
