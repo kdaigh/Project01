@@ -78,18 +78,37 @@ class Executive:
     ## Generates board with user input for mines and size
     #  @author: Ethan
     def setup(self):
-
-        print("Enter board size, between 2 and 15")
-        self.size = int(input())
+        while True:
+            try:
+                board_size_select = int(input("Please enter the board size between 2 and 15: "))
+            except ValueError:
+                print("That\'s not a number!")
+            else:
+                if 2 <= board_size_select <= 15:
+                    self.size = board_size_select
+                    break
+                else:
+                    print('Not a valid board size. Try again')
         max_mines = self.size * self.size - 1
-        print("Enter the number of mines, between 1 and " + str(max_mines))
-        self.mines = int(input())
+        while True:
+            try:
+                mine_num_select = int(
+                    input("Enter the number of mines, it should be between 1 and " + str(max_mines) + ": "))
+            except ValueError:
+                print("That\'s not a number!")
+            else:
+                if 1 <= mine_num_select <= max_mines:
+                    self.mines = mine_num_select
+                    break
+                else:
+                    print('Not a valid amount of mines. Try again')
 
         self.num_flags = self.mines
 
         self.grid = self.myBoard.make_grid(self.size)
         self.myBoard.generate_mines(self.mines, self.size, self.grid)
         self.myBoard.mine_check(self.size, self.grid)
+
 
 
     ## Takes coordinates from user and handles input
