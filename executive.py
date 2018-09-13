@@ -55,6 +55,15 @@ class Executive:
                 self.grid[x][y].is_revealed = True
             return
 
+    ## Checks that coordinates are within bounds of board
+    #  @author: Kristi
+    #  @param x, x-coordinate of cell
+    #  @param y, y-coordinate of cell
+    def is_valid_cell(self, x, y):
+        if 0 <= x < self.size and 0 <= y < self.size:
+                return True
+        return False
+
     ## Checks if all mines are flagged
     #  @author: Ethan
     def check_win(self):
