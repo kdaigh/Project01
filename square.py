@@ -19,7 +19,7 @@ class Square:
         self.is_flagged = False
         ## @var is_revealed
         #  reveal status flag
-        self.is_revealed = True
+        self.is_revealed = False
         ## @var num_adj_mines
         #  tracks number of adjacent mines
         self.num_adj_mines = 0
@@ -28,13 +28,13 @@ class Square:
     def print_square(self):
         if not self.is_revealed:
             if self.is_flagged:
-                print("F", end=' ')
+                print(str("F").ljust(2), end=' ')
             else:
-                print("O", end=' ')
+                print(str("O").ljust(2), end=' ')
         else:
             if self.is_mine:
-                print("*", end=' ')
+                print(str("*").ljust(2), end=' ')
             elif self.num_adj_mines:
-                print(" ", end=' ')
+                print(str(" ").ljust(2), end=' ')
             else:
-                print("%d" % self.num_adj_mines, end=' ')
+                print(str("a").ljust(2), end=' ')

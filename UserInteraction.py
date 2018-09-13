@@ -2,78 +2,124 @@ from boardFunctions import BoardFunctions
 from square import Square
 
 
-class UserInteraction:
-    ##variable to check when the game ends
-    game_over = False
+
+class UserInteraction():
+
+    def __init__(self):
+        self.size=0
+        self.mines=0
+        self.num_flags=0
+        self.game_over = False
+        self.grid=[0][0]
+        self.myBoard = BoardFunctions()
 
     def reveal(self, x, y):
-        if BoardFunctions.grid[x][y].num_adj_mines != 0:
-            BoardFunctions.grid[x][y].is_revealed = True
+        if self.grid[x][y].num_adj_mines != 0:
+            self.grid[x][y].is_revealed = True
         else:
-            if BoardFunctions.grid[x + 1][y].is_flagged != False and BoardFunctions.grid[x + 1][y].num_adj_mines != 0:
-                BoardFunctions.grid[x + 1][y].is_revealed = True
-            else:
-                self.reveal(x+1, y)
-            if BoardFunctions.grid[x - 1][y].is_flagged != False and BoardFunctions.grid[x - 1][y].num_adj_mines != 0:
-                BoardFunctions.grid[x - 1][y].is_revealed = True
-            else:
-                self.reveal(x-1, y)
-            if BoardFunctions.grid[x][y + 1].is_flagged != False and BoardFunctions.grid[x][y + 1].num_adj_mines != 0:
-                BoardFunctions.grid[x][y + 1].is_revealed = True
-            else:
-                self.reveal(x, y + 1)
-            if BoardFunctions.grid[x][y - 1].is_flagged != False and BoardFunctions.grid[x][y - 1].num_adj_mines != 0:
-                BoardFunctions.grid[x][y - 1].is_revealed = True
-            else:
-                self.reveal(x, y - 1)
-            if BoardFunctions.grid[x + 1][y- 1 ].is_flagged != False and BoardFunctions.grid[x + 1][y - 1].num_adj_mines != 0:
-                BoardFunctions.grid[x + 1][y - 1].is_revealed = True
-            else:
-                self.reveal(x+1, y - 1)
-            if BoardFunctions.grid[x + 1][y + 1].is_flagged != False and BoardFunctions.grid[x + 1][y + 1].num_adj_mines != 0:
-                BoardFunctions.grid[x + 1][y + 1].is_revealed = True
-            else:
-                self.reveal(x+1, y + 1)
-            if BoardFunctions.grid[x - 1][y + 1].is_flagged != False and BoardFunctions.grid[x - 1][y + 1].num_adj_mines != 0:
-                BoardFunctions.grid[x - 1][y + 1].is_revealed = True
-            else:
-                self.reveal(x-1, y + 1)
-            if BoardFunctions.grid[x - 1][y - 1].is_flagged != False and BoardFunctions.grid[x - 1][y - 1].num_adj_mines != 0:
-                BoardFunctions.grid[x - 1][y - 1].is_revealed = True
-            else:
-                self.reveal(x - 1, y - 1)
+            if self.grid[x + 1] in range(0, x) and self.grid[y] in range(0,y):
+                if self.grid[x + 1][y].is_flagged == False and self.grid[x + 1][y].num_adj_mines != 0:
+                    self.grid[x + 1][y].is_revealed = True
+                else:
+                    self.reveal(x+1, y)
+            if self.grid[x - 1] in range(0, x) and self.grid[y] in range(0,y):
+                if self.grid[x - 1][y].is_flagged == False and self.grid[x - 1][y].num_adj_mines != 0:
+                    self.grid[x - 1][y].is_revealed = True
+                else:
+                    self.reveal(x-1, y)
+            if self.grid[x] in range(0, x) and self.grid[y + 1] in range(0,y):
+                if self.grid[x][y + 1].is_flagged == False and self.grid[x][y + 1].num_adj_mines != 0:
+                    self.grid[x][y + 1].is_revealed = True
+                else:
+                    self.reveal(x, y + 1)
+            if self.grid[x] in range(0, x) and self.grid[y - 1] in range(0,y):
+                if self.grid[x][y - 1].is_flagged == False and self.grid[x][y - 1].num_adj_mines != 0:
+                    self.grid[x][y - 1].is_revealed = True
+                else:
+                    self.reveal(x, y - 1)
+            if self.grid[x + 1] in range(0, x) and self.grid[y - 1] in range(0,y):
+                if self.grid[x + 1][y - 1].is_flagged == False and self.grid[x + 1][y - 1].num_adj_mines != 0:
+                    self.grid[x + 1][y - 1].is_revealed = True
+                else:
+                    self.reveal(x+1, y - 1)
+            if self.grid[x + 1] in range(0, x) and self.grid[y + 1] in range(0,y):
+                if self.grid[x + 1][y + 1].is_flagged == False and self.grid[x + 1][y + 1].num_adj_mines != 0:
+                    self.grid[x + 1][y + 1].is_revealed = True
+                else:
+                    self.reveal(x+1, y + 1)
+            if self.grid[x - 1] in range(0, x) and self.grid[y + 1] in range(0,y):
+                if self.grid[x - 1][y + 1].is_flagged == False and self.grid[x - 1][y + 1].num_adj_mines != 0:
+                    self.grid[x - 1][y + 1].is_revealed = True
+                else:
+                    self.reveal(x-1, y + 1)
+            if self.grid[x - 1] in range(0, x) and self.grid[y - 1] in range(0,y):
+                if self.grid[x - 1][y - 1].is_flagged == False and self.grid[x - 1][y - 1].num_adj_mines != 0:
+                    self.grid[x - 1][y - 1].is_revealed = True
+                else:
+                    self.reveal(x - 1, y - 1)
 
     def check_win(self):
         flag_on_mine = 0
-        for i in range(0, BoardFunctions.boardSize):
-            for x in range(0, BoardFunctions.boardSize):
-                if BoardFunctions.grid[i][x].is_mine == True and BoardFunctions.grid[i][x].is_flagged == True:
+        for i in range(0, self.size):
+            for x in range(0, self.size):
+                if self.grid[i][x].is_mine == True and self.grid[i][x].is_flagged == True:
                     flag_on_mine += 1
-        if flag_on_mine == BoardFunctions.mines_num:
+        if flag_on_mine == self.mines:
             print("You Win!")
-            gameOver = True
+            self.game_over = True
         else:
             return 0
-    while(game_over != True):
-        numFlags = BoardFunctions.mines_num
-        BoardFunctions.print_board(BoardFunctions.size, BoardFunctions.main_grid)
-        print("Number of flags: %s" % numFlags)
-        userX = input("Enter an X coordinate: ")
-        userY = input("Enter a Y coordinate: ")
-        userChoice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
-        if userX > BoardFunctions.boardSize or userY > BoardFunctions.boardSize:
-            print("Invalid Try again")
-        elif BoardFunctions.grid[userX][userY].is_flagged == False and userChoice == n:
-            print("Invalid try again")
-        elif BoardFunctions.grid[userX][userY].is_flagged == False and userChoice == f:
-            BoardFunctions.grid[userX][userY].is_flagged = True
-            numFlags -= 1
-            check_win()
-        elif BoardFunctions.grid[userX][userY].is_flagged == True and userChoice == n:
-            BoardFunctions.grid[userX][userY].is_flagged = False
-            numFlags += 1
-        elif BoardFunctions.grid[userX][userY].is_mine == True and userChoice == r:
-            print("Game Over")
-            game_over = True
-        else:
-            reveal(userX, userY)
+
+    #@precondiotn:
+    #@postcondition:
+    #@returns:
+    #@auther
+    def play(self):
+
+        print("Enter board size, between 2 and 15")
+        self.size = int(input())
+        max_mines = self.size ** 2 - 1
+        print("Enter the number of mines, between 1 and " + str(max_mines))
+        self.mines = int(input())
+
+        numFlags = self.mines
+
+        self.grid = self.myBoard.make_grid(self.size)
+        self.myBoard.generate_mines(self.size,self.grid)
+
+        while(self.game_over == False):
+            self.myBoard.print_board(self.size, self.grid)
+            print("Number of flags: %s" % numFlags)
+            user_x = int(input("Enter an Y coordinate: "))
+            user_y = int(input("Enter a X coordinate: "))
+            user_choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
+            if user_x > self.size or user_y > self.size:
+                print("Invalid try again")
+            elif self.grid[user_x][user_y].is_flagged == False and user_choice == "n":
+                print("Invalid try again")
+            elif self.grid[user_x][user_y].is_flagged == False and numFlags == 0 and user_choice == "f":
+                print("Out of flags. Try again.")
+            elif self.grid[user_x][user_y].is_flagged == False and user_choice == "f":
+                self.grid[user_x][user_y].is_flagged = True
+                numFlags -= 1
+                self.check_win()
+            elif self.grid[user_x][user_y].is_flagged == True and user_choice == "f":
+                print("Space is already flagged. Try again.")
+            elif self.grid[user_x][user_y].is_revealed == True and user_choice == "f":
+                print("You can't flag a revealed space. Try again.")
+            elif self.grid[user_x][user_y].is_revealed == True and user_choice == "n":
+                print("You can't unflag a revealed space. Try again.")
+            elif self.grid[user_x][user_y].is_flagged == True and user_choice == "n":
+                self.grid[user_x][user_y].is_flagged = False
+                numFlags += 1
+            #Testing to see if is_revealed is being switched to true
+            elif self.grid[user_x][user_y].is_revealed == True and self.grid[user_x][user_y].is_mine == False and user_choice == "r":
+                print("Space is already revealed. Try again.")
+            elif self.grid[user_x][user_y].is_flagged == True and user_choice == "r":
+                print("You can't reveal a flagged space. Unflag before guessing this space or guess a different space.")
+            elif self.grid[user_x][user_y].is_mine == True and user_choice == "r":
+                print("Game Over")
+                self.game_over = True
+                self.play_again()
+            else:
+                self.reveal(user_x, user_y)
