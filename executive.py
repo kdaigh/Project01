@@ -153,3 +153,9 @@ class Executive:
                 self.game_over = True
             else:
                 self.reveal(x, y)
+
+        for i in range(0, self.size):
+            for j in range(0, self.size):
+                self.grid[i][j].is_revealed=True
+                self.grid[i][j].num_adj_mines=False
+        self.myBoard.print_board(self.size, self.grid)
