@@ -1,7 +1,10 @@
-
-#boardFunctions class
-#project: mineSweeper
-#author: Clare Meyer
+## @package boardFunctions
+#  Source file for the board object
+#
+#  Project: Minesweeper
+#  Author: Clare Meyer
+#  Created: 09/06/18
+#  Completed:
 
 from random import randint
 from square import Square
