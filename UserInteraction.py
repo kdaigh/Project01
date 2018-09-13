@@ -1,16 +1,16 @@
 from boardFunctions import BoardFunctions
-from square import Square
 
 
+class UserInteraction:
 
-class UserInteraction():
-
+    ## Constructor; initializes class variables
+    #  @author: Ethan
     def __init__(self):
-        self.size=0
-        self.mines=0
-        self.num_flags=0
+        self.size = 0
+        self.mines = 0
+        self.num_flags = 0
         self.game_over = False
-        self.grid=[0][0]
+        self.grid = [0][0]
         self.myBoard = BoardFunctions()
 
     def reveal(self, x, y):
@@ -58,6 +58,8 @@ class UserInteraction():
                 else:
                     self.reveal(x - 1, y - 1)
 
+    ## Checks if all mines are flagged
+    #  @author: Ethan
     def check_win(self):
         flag_on_mine = 0
         for i in range(0, self.size):
@@ -70,10 +72,6 @@ class UserInteraction():
         else:
             return 0
 
-    #@precondiotn:
-    #@postcondition:
-    #@returns:
-    #@auther
     def play(self):
 
         print("Enter board size, between 2 and 15")
