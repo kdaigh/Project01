@@ -122,7 +122,7 @@ class Executive:
             x = int(input("Enter an Y coordinate: "))
             y = int(input("Enter a X coordinate: "))
             choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
-            if x > self.size or y > self.size:
+            if x > self.size-1 or y > self.size-1:
                 print("Invalid try again")
             elif(choice!="f" and choice!="n" and choice!="r"):
                 print("Invalid choice try again")
