@@ -1,3 +1,11 @@
+## @package UserInteraction
+#  Source file for the UI class
+#
+#  Project: Minesweeper
+#  Author: Ethan Lefert
+#  Created: 09/08/18
+#  Completed:
+
 from boardFunctions import BoardFunctions
 
 
