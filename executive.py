@@ -82,7 +82,7 @@ class Executive:
             try:
                 board_size_select = int(input("Please enter the board size between 2 and 15: "))
             except ValueError:
-                print("That\'s not an integer. Try again.")
+                print("That\'s not a number!")
             else:
                 if 2 <= board_size_select <= 15:
                     self.size = board_size_select
@@ -95,7 +95,7 @@ class Executive:
                 mine_num_select = int(
                     input("Enter the number of mines, it should be between 1 and " + str(max_mines) + ": "))
             except ValueError:
-                print("That\'s not an integer. Try again.")
+                print("That\'s not a number!")
             else:
                 if 1 <= mine_num_select <= max_mines:
                     self.mines = mine_num_select
@@ -113,7 +113,7 @@ class Executive:
 
     ## Takes coordinates from user and handles input
     #  @pre: Board has been setup
-    #  @author: Ethan, Kyle
+    #  @author: Ethan
     def play(self):
         while not self.game_over:
             self.myBoard.print_board(self.size, self.grid)
@@ -121,7 +121,7 @@ class Executive:
             while True:
                 try:
                     x = int(input("Enter a Y coordinate: "))
-                    if x < 0 or x > self.size -1:
+                    if x < 0 or x > self.size - 1:
                         print("Invalid input. Try again.")
                     else:
                         break
@@ -130,19 +130,19 @@ class Executive:
             while True:
                 try:
                     y = int(input("Enter an X coordinate: "))
-                    if y < 0 or y > self.size -1:
+                    if y < 0 or y > self.size - 1:
                         print("Invalid input. Try again.")
                     else:
                         break
                 except ValueError:
                     print("That\'s not an integer. Try again.")
             choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
-            if choice != "f" and choice != "n" and choice != "r":
-                print("Invalid input. Try again")
-            elif not self.grid[x][y].is_flagged and not self.grid[x][y].is_revealed and choice == "n":
-                print("Space is not flagged. Try again.")
-            elif not self.grid[x][y].is_flagged and self.grid[x][y].is_revealed and choice == "n":
-                print("Can't unflag a revealed space. Try again.")
+            if x > self.size-1 or y > self.size-1:
+                print("Invalid try again")
+            elif(choice!="f" and choice!="n" and choice!="r"):
+                print("Invalid choice try again")
+            elif not self.grid[x][y].is_flagged and choice == "n":
+                print("Invalid try again")
             elif not self.grid[x][y].is_flagged and self.num_flags == 0 and choice == "f":
                 print("Out of flags. Try again.")
             elif self.grid[x][y].is_flagged and choice == "f":
@@ -151,14 +151,14 @@ class Executive:
                 print("You can't flag a revealed space. Try again.")
             elif self.grid[x][y].is_revealed and choice == "n":
                 print("You can't unflag a revealed space. Try again.")
-            elif not self.grid[x][y].is_flagged and self.grid[x][y].num_adj_mines == 0 and choice == "f":
-                self.grid[x][y].is_flagged = True
-                self.num_flags -= 1
-                self.check_win()
             elif self.grid[x][y].is_flagged and choice == "n":
                 self.grid[x][y].is_flagged = False
                 self.num_flags += 1
-            # Testing to see if is_revealed is being switched to true
+            elif not self.grid[x][y].is_flagged and choice == "f":
+                self.grid[x][y].is_flagged = True
+                self.num_flags -= 1
+                self.check_win()
+            #Testing to see if is_revealed is being switched to true
             elif self.grid[x][y].is_revealed and not self.grid[x][y].is_mine and choice == "r":
                 print("Space is already revealed. Try again.")
             elif self.grid[x][y].is_flagged and choice == "r":
@@ -171,6 +171,6 @@ class Executive:
 
         for i in range(0, self.size):
             for j in range(0, self.size):
-                self.grid[i][j].is_revealed = True
-                self.grid[i][j].num_adj_mines = False
+                self.grid[i][j].is_revealed=True
+                self.grid[i][j].num_adj_mines=False
         self.myBoard.print_board(self.size, self.grid)
