@@ -7,9 +7,7 @@
 #  Completed:
 
 from menu import Menu
-from board import Board
-from executive import Executive
 
-playing = Executive()
-playing.setup()
-playing.play()
+playing = Menu()
+playing.game_rules()
+playing.game_menu()
