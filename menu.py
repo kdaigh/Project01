@@ -19,9 +19,6 @@ class Menu :
         self.myGame = Executive ()
 
     
-
-
-
     def game_menu(self):
 
         play_again = "p"
@@ -46,7 +43,6 @@ class Menu :
                     print ("Please enter a valid choice")
             print ("Goodbye! See you later!")
             return
-
 
 
     def game_rules (self):
