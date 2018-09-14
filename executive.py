@@ -145,16 +145,16 @@ class Executive:
                 print("Can't unflag a revealed space. Try again.")
             elif not self.grid[x][y].is_flagged and self.num_flags == 0 and choice == "f":
                 print("Out of flags. Try again.")
-            elif not self.grid[x][y].is_flagged and self.grid[x][y].num_adj_mines == 0 and choice == "f":
-                self.grid[x][y].is_flagged = True
-                self.num_flags -= 1
-                self.check_win()
             elif self.grid[x][y].is_flagged and choice == "f":
                 print("Space is already flagged. Try again.")
             elif self.grid[x][y].is_revealed and choice == "f":
                 print("You can't flag a revealed space. Try again.")
             elif self.grid[x][y].is_revealed and choice == "n":
                 print("You can't unflag a revealed space. Try again.")
+            elif not self.grid[x][y].is_flagged and self.grid[x][y].num_adj_mines == 0 and choice == "f":
+                self.grid[x][y].is_flagged = True
+                self.num_flags -= 1
+                self.check_win()
             elif self.grid[x][y].is_flagged and choice == "n":
                 self.grid[x][y].is_flagged = False
                 self.num_flags += 1
