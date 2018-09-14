@@ -82,7 +82,7 @@ class Executive:
             try:
                 board_size_select = int(input("Please enter the board size between 2 and 15: "))
             except ValueError:
-                print("That\'s not a number. Try again.")
+                print("That\'s not an integer. Try again.")
             else:
                 if 2 <= board_size_select <= 15:
                     self.size = board_size_select
@@ -95,7 +95,7 @@ class Executive:
                 mine_num_select = int(
                     input("Enter the number of mines, it should be between 1 and " + str(max_mines) + ": "))
             except ValueError:
-                print("That\'s not a number. Try again.")
+                print("That\'s not an integer. Try again.")
             else:
                 if 1 <= mine_num_select <= max_mines:
                     self.mines = mine_num_select
@@ -126,7 +126,7 @@ class Executive:
                     else:
                         break
                 except ValueError:
-                    print("That\'s not a number. Try again.")
+                    print("That\'s not an integer. Try again.")
             while True:
                 try:
                     y = int(input("Enter an X coordinate: "))
@@ -135,12 +135,14 @@ class Executive:
                     else:
                         break
                 except ValueError:
-                    print("That\'s not a number. Try again.")
+                    print("That\'s not an integer. Try again.")
             choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
             if choice != "f" and choice != "n" and choice != "r":
                 print("Invalid input. Try again")
-            elif not self.grid[x][y].is_flagged and choice == "n":
+            elif not self.grid[x][y].is_flagged and not self.grid[x][y].is_revealed and choice == "n":
                 print("Space is not flagged. Try again.")
+            elif not self.grid[x][y].is_flagged and self.grid[x][y].is_revealed and choice == "n":
+                print("Can't unflag a revealed space. Try again.")
             elif not self.grid[x][y].is_flagged and self.num_flags == 0 and choice == "f":
                 print("Out of flags. Try again.")
             elif not self.grid[x][y].is_flagged and self.grid[x][y].num_adj_mines == 0 and choice == "f":
