@@ -25,13 +25,14 @@ class Menu :
                 break
             except:
                 print ("Please enter a valid choice: ")
+                print ("Play[1], Quit[2]")
         return check
 
 
     def game_menu(self):
 
         play_again = 1
-        while (self.myGame.game_over == False and self.choice != 2):
+        while (self.myGame.game_over == False):
             print("Please, chose from the menu:")
             print ("""1. Play the Game
 2. Quit""")
@@ -41,11 +42,11 @@ class Menu :
                 self.myGame.play()
             elif self.choice == 2:
                 print("Goodbye! See you later!")
-                return
+                break
             else:
                 print ("Please enter a valid choice:")
             while play_again != 2:
-                print ("Play [1], otherwise [2]")
+                print ("Play[1], Quit [2]")
                 play_again = self.type_error_handler()
                 if play_again == 1:
                     self.myGame = Executive ()
