@@ -4,7 +4,7 @@
 #  Project: Minesweeper
 #  Author: Ayah Alkhatib
 #  Created: 09/08/18
-#  Completed:
+#  Completed: 09/15/2018
 
 
 from executive import Executive
@@ -12,12 +12,17 @@ from executive import Executive
 
 class Menu :
 
-
+    ## Constructor; initializes class variables
+    # @author: Ayah
     def __init__(self):
 
         self.choice = 0
         self.myGame = Executive ()
 
+    ## Handles any type error in users input
+    # @author: Ayah
+    # @no parameters
+    # @returns user input when entered correctly
     def type_error_handler(self):
         while True:
             try:
@@ -28,7 +33,10 @@ class Menu :
                 print ("Play[1], Quit[2]")
         return check
 
-
+    ## Keep thw game running until user chose to quit
+    # @authors: Ayah
+    # @no parameters
+    # @returns: none
     def game_menu(self):
 
         play_again = 1
@@ -57,7 +65,11 @@ class Menu :
             print ("Goodbye! See you later!")
             return
 
-
+    
+    ## Prints the game instructions
+    # @author: Ayah
+    # @no parameters
+    # @no returns
     def game_rules (self):
         print ("""Welcome to Minesweepers!
 
