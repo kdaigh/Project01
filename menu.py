@@ -18,7 +18,16 @@ class Menu :
         self.choice = 0
         self.myGame = Executive ()
 
-    
+    def type_error_handler(self):
+        while True:
+            try:
+                check = int (input())
+                break
+            except:
+                print ("Please enter a valid choice: ")
+        return check
+
+
     def game_menu(self):
 
         play_again = 1
@@ -26,7 +35,7 @@ class Menu :
             print("Please, chose from the menu:")
             print ("""1. Play the Game
 2. Quit""")
-            self.choice = int(input())
+            self.choice = self.type_error_handler()
             if self.choice == 1:
                 self.myGame.setup()
                 self.myGame.play()
@@ -36,7 +45,8 @@ class Menu :
             else:
                 print ("Please enter a valid choice:")
             while play_again != 2:
-                play_again = int (input ("Play (1), otherwise (2): "))
+                print ("Play [1], otherwise [2]")
+                play_again = self.type_error_handler()
                 if play_again == 1:
                     self.myGame = Executive ()
                     self.myGame.setup()
