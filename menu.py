@@ -21,25 +21,27 @@ class Menu :
     
     def game_menu(self):
 
-        play_again = "p"
-        while (self.myGame.game_over == False):
+        play_again = 1
+        while (self.myGame.game_over == False and self.choice != 2):
             print("Please, chose from the menu:")
-            print("""1. Play the Game
+            print ("""1. Play the Game
 2. Quit""")
             self.choice = int(input())
             if self.choice == 1:
                 self.myGame.setup()
                 self.myGame.play()
-            else:
+            elif self.choice == 2:
                 print("Goodbye! See you later!")
                 return
-            while play_again != "q":
-                play_again = input ("Play again (p), otherwise (q): ")
-                if play_again == "p":
+            else:
+                print ("Please enter a valid choice:")
+            while play_again != 2:
+                play_again = int (input ("Play (1), otherwise (2): "))
+                if play_again == 1:
                     self.myGame = Executive ()
                     self.myGame.setup()
                     self.myGame.play()
-                elif play_again !='q':
+                elif play_again != 2:
                     print ("Please enter a valid choice")
             print ("Goodbye! See you later!")
             return
