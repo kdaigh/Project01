@@ -18,4 +18,4 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## Acknowledgments
 
-Please read [SOURCES.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for a works cited.
+Please read [SOURCES.md](https://github.com/amalkhatib90/Project01/blob/master/documentation/SOURCES.MD) for a works cited.
