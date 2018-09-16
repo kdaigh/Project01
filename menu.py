@@ -32,10 +32,8 @@ class Menu:
                 print ("Play[1], Quit[2]")
         return check
 
-    ## Keep thw game running until user chose to quit
+    ## Keep the game running until user chose to quit
     # @authors: Ayah
-    # @no parameters
-    # @returns: none
     def game_menu(self):
 
         play_again = 1
