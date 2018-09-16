@@ -1,23 +1,26 @@
-## @class menu
+## @file menu.py
 #  Source file for the menu object
 #
 #  Project: Minesweeper
 #  Author: Ayah Alkhatib
 #  Created: 09/08/18
-#  Completed: 09/15/2018
 
 
 from executive import Executive
 
-
+## @class Menu
+#  @brief Prints menu and rules; Manages Executive instance
 class Menu:
 
     ## Constructor; initializes class variables
     # @author: Ayah
     def __init__(self):
-
+        ## @var choice
+        #  flag for replay choice
         self.choice = 0
-        self.myGame = Executive ()
+        ## @var myGame
+        #  instance of the executive class
+        self.myGame = Executive()
 
     ## Handles any type error in users input
     # @author: Ayah

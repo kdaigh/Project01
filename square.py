@@ -1,12 +1,12 @@
-## @class square
+## @file square.py
 #  Source file for the square object
 #
 #  Project: Minesweeper
 #  Author: Kristi Daigh
 #  Created: 09/07/18
-#  Completed:
 
-
+## @class Square
+#  @brief Defines and manages properties for Square object
 class Square:
 
     ## Constructor

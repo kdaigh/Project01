@@ -1,10 +1,9 @@
-## @class main
+## @file main.py
 #  Main file for project
 #
 #  Project: Minesweeper
 #  Author: All
 #  Created: 09/06/18
-#  Completed:
 
 from menu import Menu
 

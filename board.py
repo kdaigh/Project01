@@ -1,19 +1,25 @@
-## @class board
+## @file board.py
 #  Source file for the board object
 #
 #  Project: Minesweeper
 #  Author: Clare Meyer
 #  Created: 09/06/18
-#  Completed:
 
 from random import randint
 from square import Square
 
-
+## @class Board
+#  @brief Handles board creation and board functionality
 class Board:
 
+    ## Constructor
+    #  @author: Clare
     def __init__(self):
+        ## @var boardSize
+        #  stores the size of the board
         self.boardSize = 0
+        ## @var mines_num
+        #  stores the number of mines
         self.mines_num = 0
 
     ## Generates a grid object

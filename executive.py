@@ -1,23 +1,36 @@
-## @class executive
+## @file executive.py
 #  Source file for the UI class
 #
 #  Project: Minesweeper
-#  @author: Ethan Lefert
-#  @date: 09/08/18
+#  Author: Ethan Lefert
+#  Created: 09/08/18
 
 from board import Board
 
-
+## @class Executive
+#  @brief Handles user input and gameplay
 class Executive:
 
     ## Constructor; initializes class variables
     #  @author: Ethan
     def __init__(self):
+        ## @var size
+        #  stores the size of the board
         self.size = 0
+        ## @var mines
+        #  stores the number of mines
         self.mines = 0
+        ## @var num_flags
+        #  stores the number of flags
         self.num_flags = 0
+        ## @var game_over
+        #  flag for game status
         self.game_over = False
+        ## @var grid
+        #  empty grid
         self.grid = [0][0]
+        ## @var myBoard
+        #  instance of the board class
         self.myBoard = Board()
 
     ## Recursively calls reveal_adjacent() to uncover squares
