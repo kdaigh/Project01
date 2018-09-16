@@ -1,4 +1,4 @@
-## @package menu
+## @class menu
 #  Source file for the menu object
 #
 #  Project: Minesweeper

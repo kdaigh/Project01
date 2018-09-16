@@ -1,4 +1,4 @@
-## @package main
+## @class main
 #  Main file for project
 #
 #  Project: Minesweeper

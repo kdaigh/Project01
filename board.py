@@ -1,4 +1,4 @@
-## @package board
+## @class board
 #  Source file for the board object
 #
 #  Project: Minesweeper

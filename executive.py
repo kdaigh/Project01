@@ -1,10 +1,9 @@
-## @package executive
+## @class executive
 #  Source file for the UI class
 #
 #  Project: Minesweeper
-#  Author: Ethan Lefert
-#  Created: 09/08/18
-#  Completed:
+#  @author: Ethan Lefert
+#  @date: 09/08/18
 
 from board import Board
 
@@ -38,11 +37,14 @@ class Executive:
         else:
             self.grid[x][y].is_revealed = True
 
-    def is_valid_cell(self,x,y):
-        if(x<0 or y<0 or x>self.size-1 or y>self.size-1 ):
-            return False
-        else:
+    ## Checks that coordinates are within bounds of board
+    #  @author: Kristi
+    #  @param x, x-coordinate of cell
+    #  @param y, y-coordinate of cell
+    def is_valid_cell(self, x, y):
+        if 0 <= x < self.size and 0 <= y < self.size:
             return True
+        return False
 
     ## Reveals cells that aren't mines; Called by reveal()
     #  @authors: Ethan, Kristi

@@ -1,4 +1,4 @@
-## @package square
+## @class square
 #  Source file for the square object
 #
 #  Project: Minesweeper
