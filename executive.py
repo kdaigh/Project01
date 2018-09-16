@@ -7,6 +7,7 @@
 
 from board import Board
 
+
 ## @class Executive
 #  @brief Handles user input and gameplay
 class Executive:
@@ -78,6 +79,7 @@ class Executive:
 
     ## Checks if all mines are flagged
     #  @author: Ethan
+    #  @post: game_over flag has been updated
     def check_win(self):
         flag_on_mine = 0
         for i in range(0, self.size):
@@ -92,6 +94,7 @@ class Executive:
 
     ## Generates board with user input for mines and size
     #  @author: Ethan
+    #  @post: Board is generated based on user input
     def setup(self):
         while True:
             try:

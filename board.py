@@ -8,6 +8,7 @@
 from random import randint
 from square import Square
 
+
 ## @class Board
 #  @brief Handles board creation and board functionality
 class Board:

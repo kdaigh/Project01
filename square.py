@@ -5,11 +5,13 @@
 #  Author: Kristi Daigh
 #  Created: 09/07/18
 
+
 ## @class Square
 #  @brief Defines and manages properties for Square object
 class Square:
 
     ## Constructor
+    #  @author: Kristi
     def __init__(self):
         ## @var is_mine
         #  mine status flag
@@ -25,6 +27,7 @@ class Square:
         self.num_adj_mines = 0
 
     ## Prints the square based on properties
+    #  @author: Kristi
     def print_square(self):
         if not self.is_revealed:
             if self.is_flagged:

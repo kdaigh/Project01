@@ -5,15 +5,15 @@
 #  Author: Ayah Alkhatib
 #  Created: 09/08/18
 
-
 from executive import Executive
+
 
 ## @class Menu
 #  @brief Prints menu and rules; Manages Executive instance
 class Menu:
 
     ## Constructor; initializes class variables
-    # @author: Ayah
+    #  @author: Ayah
     def __init__(self):
         ## @var choice
         #  flag for replay choice
@@ -23,8 +23,8 @@ class Menu:
         self.myGame = Executive()
 
     ## Handles any type error in users input
-    # @author: Ayah
-    # @returns user input when entered correctly
+    #  @author: Ayah
+    #  @returns user input when entered correctly
     def type_error_handler(self):
         while True:
             try:
@@ -36,7 +36,7 @@ class Menu:
         return check
 
     ## Keep the game running until user chose to quit
-    # @authors: Ayah
+    #  @authors: Ayah
     def game_menu(self):
 
         play_again = 1
@@ -67,7 +67,7 @@ class Menu:
 
     
     ## Prints the game instructions
-    # @author: Ayah
+    #  @author: Ayah
     def game_rules(self):
         print("""Welcome to Minesweepers!
 
