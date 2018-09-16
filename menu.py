@@ -10,7 +10,7 @@
 from executive import Executive
 
 
-class Menu :
+class Menu:
 
     ## Constructor; initializes class variables
     # @author: Ayah
@@ -21,7 +21,6 @@ class Menu :
 
     ## Handles any type error in users input
     # @author: Ayah
-    # @no parameters
     # @returns user input when entered correctly
     def type_error_handler(self):
         while True:
@@ -40,9 +39,9 @@ class Menu :
     def game_menu(self):
 
         play_again = 1
-        while (self.myGame.game_over == False):
+        while not self.myGame.game_over:
             print("Please, chose from the menu:")
-            print ("""1. Play the Game
+            print("""1. Play the Game
 2. Quit""")
             self.choice = self.type_error_handler()
             if self.choice == 1:
@@ -52,26 +51,24 @@ class Menu :
                 print("Goodbye! See you later!")
                 break
             else:
-                print ("Please enter a valid choice:")
+                print("Please enter a valid choice:")
             while play_again != 2:
-                print ("Play[1], Quit [2]")
+                print("Play[1], Quit [2]")
                 play_again = self.type_error_handler()
                 if play_again == 1:
                     self.myGame = Executive ()
                     self.myGame.setup()
                     self.myGame.play()
                 elif play_again != 2:
-                    print ("Please enter a valid choice")
-            print ("Goodbye! See you later!")
+                    print("Please enter a valid choice")
+            print("Goodbye! See you later!")
             return
 
     
     ## Prints the game instructions
     # @author: Ayah
-    # @no parameters
-    # @no returns
-    def game_rules (self):
-        print ("""Welcome to Minesweepers!
+    def game_rules(self):
+        print("""Welcome to Minesweepers!
 
 Here are the game instructions:
 
