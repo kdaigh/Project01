@@ -139,9 +139,9 @@ class Executive:
                 except ValueError:
                     print("That\'s not an integer. Try again.")
             choice = input("Enter an action flag [f], reveal [r], unflag [n]: ")
-            if x > self.size-1 or y > self.size-1:
+            if x > self.size - 1 or y > self.size - 1:
                 print("Invalid try again")
-            elif(choice!="f" and choice!="n" and choice!="r"):
+            elif choice != "f" and choice != "n" and choice != "r":
                 print("Invalid choice try again")
             elif not self.grid[x][y].is_flagged and choice == "n":
                 print("Invalid try again")
@@ -173,6 +173,6 @@ class Executive:
 
         for i in range(0, self.size):
             for j in range(0, self.size):
-                self.grid[i][j].is_revealed=True
-                self.grid[i][j].num_adj_mines=False
+                self.grid[i][j].is_revealed = True
+                self.grid[i][j].num_adj_mines = False
         self.myBoard.print_board(self.size, self.grid)
