@@ -14,7 +14,11 @@ To play the game, simply compile using "python3" in terminal.
 * **Ethan Lefert** - [elefert400](https://github.com/elefert400)
 * **Clare Meyer** - [clareMeyer](https://github.com/clareMeyer)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/amalkhatib90/Project01/graphs/contributors) who participated in this project.
+
+## Documentation
+
+[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/amalkhatib90/Project01/tree/master/documentation/html) for this project.
 
 ## Acknowledgments
 
