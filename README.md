@@ -1,4 +1,4 @@
-# Project01: Minesweeper
+# Minesweeper (EECS448: Project 1)
 
 A simple version of Minesweeper that runs from terminal.
 
