@@ -14,12 +14,12 @@ To play the game, simply compile using "python3" in terminal.
 * **Ethan Lefert** - [elefert400](https://github.com/elefert400)
 * **Clare Meyer** - [clareMeyer](https://github.com/clareMeyer)
 
-See also the list of [contributors](https://github.com/kdaigh/Project01/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/kdaigh/terminal-minesweeper/graphs/contributors) who participated in this project.
 
 ## Documentation
 
-[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/kdaigh/Project01/tree/master/documentation/html) for this project.
+[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/kdaigh/Pterminal-minesweeper/tree/master/documentation/html) for this project.
 
 ## Acknowledgments
 
-Please read [SOURCES.md](https://github.com/kdaigh/Project01/blob/master/documentation/SOURCES.md) for a works cited.
+Please read [SOURCES.md](https://github.com/kdaigh/terminal-minesweeper/blob/master/documentation/SOURCES.md) for a works cited.
