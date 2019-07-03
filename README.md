@@ -18,7 +18,7 @@ See also the list of [contributors](https://github.com/kdaigh/terminal-minesweep
 
 ## Documentation
 
-[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/kdaigh/Pterminal-minesweeper/tree/master/documentation/html) for this project.
+[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/kdaigh/terminal-minesweeper/tree/master/documentation) for this project.
 
 ## Acknowledgments
 
