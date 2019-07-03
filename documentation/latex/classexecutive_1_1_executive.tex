@@ -1,0 +1,180 @@
+\hypertarget{classexecutive_1_1_executive}{}\section{executive.\+Executive Class Reference}
+\label{classexecutive_1_1_executive}\index{executive.\+Executive@{executive.\+Executive}}
+
+
+Handles user input and gameplay.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_ac80ddb6446f931e0c83db8c38d55bd6f}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor; initializes class variables. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_a6c8b73fd28d41e64cbd8b259d3c92ae8}{reveal}} (self, x, y)
+\begin{DoxyCompactList}\small\item\em Recursively calls \mbox{\hyperlink{classexecutive_1_1_executive_a9d0ec27d177df404e872ffe9c2faf4ba}{reveal\+\_\+adjacent()}} to uncover squares. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_aa44d8e9965ea2e73d9e22c81208b8819}{is\+\_\+valid\+\_\+cell}} (self, x, y)
+\begin{DoxyCompactList}\small\item\em Checks that coordinates are within bounds of board. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_a9d0ec27d177df404e872ffe9c2faf4ba}{reveal\+\_\+adjacent}} (self, x, y)
+\begin{DoxyCompactList}\small\item\em Reveals cells that aren\textquotesingle{}t mines; Called by \mbox{\hyperlink{classexecutive_1_1_executive_a6c8b73fd28d41e64cbd8b259d3c92ae8}{reveal()}} \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_a79dbdc41718e33faf8cc4a982ed40a32}{check\+\_\+win}} (self)
+\begin{DoxyCompactList}\small\item\em Checks if all mines are flagged. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_a45fd19b240299b2f39e9c83d25c47d4a}{setup}} (self)
+\begin{DoxyCompactList}\small\item\em Generates board with user input for mines and size. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classexecutive_1_1_executive_a127200710d2bdb34a902c703928ab93a}{play}} (self)
+\begin{DoxyCompactList}\small\item\em Takes coordinates from user and handles input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classexecutive_1_1_executive_a5ab711362cee8c8bf1d4a0e44bc957d1}\label{classexecutive_1_1_executive_a5ab711362cee8c8bf1d4a0e44bc957d1}} 
+\mbox{\hyperlink{classexecutive_1_1_executive_a5ab711362cee8c8bf1d4a0e44bc957d1}{size}}
+\begin{DoxyCompactList}\small\item\em stores the size of the board \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classexecutive_1_1_executive_a67c0fab446489cfb1abd5dab340f29ab}\label{classexecutive_1_1_executive_a67c0fab446489cfb1abd5dab340f29ab}} 
+\mbox{\hyperlink{classexecutive_1_1_executive_a67c0fab446489cfb1abd5dab340f29ab}{mines}}
+\begin{DoxyCompactList}\small\item\em stores the number of mines \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classexecutive_1_1_executive_a1d4a4379880d31d06d71d7513997bdd8}\label{classexecutive_1_1_executive_a1d4a4379880d31d06d71d7513997bdd8}} 
+\mbox{\hyperlink{classexecutive_1_1_executive_a1d4a4379880d31d06d71d7513997bdd8}{num\+\_\+flags}}
+\begin{DoxyCompactList}\small\item\em stores the number of flags \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classexecutive_1_1_executive_a5fd03e2cd4898629ccf7069ad8fda223}\label{classexecutive_1_1_executive_a5fd03e2cd4898629ccf7069ad8fda223}} 
+\mbox{\hyperlink{classexecutive_1_1_executive_a5fd03e2cd4898629ccf7069ad8fda223}{game\+\_\+over}}
+\begin{DoxyCompactList}\small\item\em flag for game status \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classexecutive_1_1_executive_ad0e6346eb28204b224657e470aa2d992}\label{classexecutive_1_1_executive_ad0e6346eb28204b224657e470aa2d992}} 
+\mbox{\hyperlink{classexecutive_1_1_executive_ad0e6346eb28204b224657e470aa2d992}{grid}}
+\begin{DoxyCompactList}\small\item\em empty grid \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classexecutive_1_1_executive_ad76545b6e1333d1e749acdda226945a1}\label{classexecutive_1_1_executive_ad76545b6e1333d1e749acdda226945a1}} 
+\mbox{\hyperlink{classexecutive_1_1_executive_ad76545b6e1333d1e749acdda226945a1}{my\+Board}}
+\begin{DoxyCompactList}\small\item\em instance of the board class \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles user input and gameplay. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classexecutive_1_1_executive_ac80ddb6446f931e0c83db8c38d55bd6f}\label{classexecutive_1_1_executive_ac80ddb6446f931e0c83db8c38d55bd6f}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Constructor; initializes class variables. 
+
+\begin{DoxyAuthor}{Author}
+\+: Ethan 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classexecutive_1_1_executive_a79dbdc41718e33faf8cc4a982ed40a32}\label{classexecutive_1_1_executive_a79dbdc41718e33faf8cc4a982ed40a32}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!check\+\_\+win@{check\+\_\+win}}
+\index{check\+\_\+win@{check\+\_\+win}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{check\+\_\+win()}{check\_win()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+check\+\_\+win (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if all mines are flagged. 
+
+\begin{DoxyAuthor}{Author}
+\+: Ethan 
+\end{DoxyAuthor}
+\begin{DoxyPostcond}{Postcondition}
+\+: game\+\_\+over flag has been updated 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classexecutive_1_1_executive_aa44d8e9965ea2e73d9e22c81208b8819}\label{classexecutive_1_1_executive_aa44d8e9965ea2e73d9e22c81208b8819}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!is\+\_\+valid\+\_\+cell@{is\+\_\+valid\+\_\+cell}}
+\index{is\+\_\+valid\+\_\+cell@{is\+\_\+valid\+\_\+cell}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{is\+\_\+valid\+\_\+cell()}{is\_valid\_cell()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+is\+\_\+valid\+\_\+cell (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+
+
+Checks that coordinates are within bounds of board. 
+
+\begin{DoxyAuthor}{Author}
+\+: Kristi 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em x,x-\/coordinate} & of cell \\
+\hline
+{\em y,y-\/coordinate} & of cell \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexecutive_1_1_executive_a127200710d2bdb34a902c703928ab93a}\label{classexecutive_1_1_executive_a127200710d2bdb34a902c703928ab93a}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!play@{play}}
+\index{play@{play}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+play (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Takes coordinates from user and handles input. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: Board has been setup 
+\end{DoxyPrecond}
+\begin{DoxyAuthor}{Author}
+\+: Ethan 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{classexecutive_1_1_executive_a6c8b73fd28d41e64cbd8b259d3c92ae8}\label{classexecutive_1_1_executive_a6c8b73fd28d41e64cbd8b259d3c92ae8}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!reveal@{reveal}}
+\index{reveal@{reveal}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{reveal()}{reveal()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+reveal (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+
+
+Recursively calls \mbox{\hyperlink{classexecutive_1_1_executive_a9d0ec27d177df404e872ffe9c2faf4ba}{reveal\+\_\+adjacent()}} to uncover squares. 
+
+\begin{DoxyAuthor}{Authors}
+\+: Ethan, Kristi 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em x,x-\/coordinate} & of cell \\
+\hline
+{\em y,y-\/coordinate} & of cell \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexecutive_1_1_executive_a9d0ec27d177df404e872ffe9c2faf4ba}\label{classexecutive_1_1_executive_a9d0ec27d177df404e872ffe9c2faf4ba}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!reveal\+\_\+adjacent@{reveal\+\_\+adjacent}}
+\index{reveal\+\_\+adjacent@{reveal\+\_\+adjacent}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{reveal\+\_\+adjacent()}{reveal\_adjacent()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+reveal\+\_\+adjacent (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+
+
+Reveals cells that aren\textquotesingle{}t mines; Called by \mbox{\hyperlink{classexecutive_1_1_executive_a6c8b73fd28d41e64cbd8b259d3c92ae8}{reveal()}} 
+
+\begin{DoxyAuthor}{Authors}
+\+: Ethan, Kristi 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em x,x-\/coordinate} & of cell \\
+\hline
+{\em y,y-\/coordinate} & of cell \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexecutive_1_1_executive_a45fd19b240299b2f39e9c83d25c47d4a}\label{classexecutive_1_1_executive_a45fd19b240299b2f39e9c83d25c47d4a}} 
+\index{executive\+::\+Executive@{executive\+::\+Executive}!setup@{setup}}
+\index{setup@{setup}!executive\+::\+Executive@{executive\+::\+Executive}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily def executive.\+Executive.\+setup (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Generates board with user input for mines and size. 
+
+\begin{DoxyAuthor}{Author}
+\+: Ethan 
+\end{DoxyAuthor}
+\begin{DoxyPostcond}{Postcondition}
+\+: Board is generated based on user input 
+\end{DoxyPostcond}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{executive_8py}{executive.\+py}}\end{DoxyCompactItemize}

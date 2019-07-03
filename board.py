@@ -1,19 +1,26 @@
-## @package board
+## @file board.py
 #  Source file for the board object
 #
 #  Project: Minesweeper
 #  Author: Clare Meyer
 #  Created: 09/06/18
-#  Completed:
 
 from random import randint
 from square import Square
 
 
+## @class Board
+#  @brief Handles board creation and board functionality
 class Board:
 
+    ## Constructor
+    #  @author: Clare
     def __init__(self):
+        ## @var boardSize
+        #  stores the size of the board
         self.boardSize = 0
+        ## @var mines_num
+        #  stores the number of mines
         self.mines_num = 0
 
     ## Generates a grid object
@@ -35,12 +42,14 @@ class Board:
     #  @param: size, size of the grid
     #  @param: grid, grid to be populated
     #  @post: the grid is populated with mines
-    def generate_mines(self, size, grid):
+    def generate_mines(self, mines, size, grid):
+        self.mines_num=mines;
+        self.boardSize=size;
         for i in range(0, self.mines_num):
             is_bomb = False
             while not is_bomb:
-                a = randint(0, size - 1)
-                b = randint(0, size - 1)
+                a = randint(0, self.boardSize - 1)
+                b = randint(0, self.boardSize - 1)
                 if not grid[a][b].is_mine:
                     grid[a][b].is_mine = True
                     is_bomb = True
